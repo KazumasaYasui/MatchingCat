@@ -1,0 +1,14 @@
+<h1><%= @user.nickname %>のマイページ</h1>
+
+<h2><%= @user.nickname %>のイベント一覧</h2>
+<div>
+  <% @events.each do |event| %>
+    <div>
+      <%= link_to event_path(event) do %>
+        <div>イベント名：
+          <%= event.event_title %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

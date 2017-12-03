@@ -1,0 +1,24 @@
+<%= form_for(@article) do |f| %>
+  <% if @article.errors.any? %>
+    <div>
+      <ul>
+      <% @article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <div>
+      <p>タイトル</p>
+      <%= f.text_field :article_title, placeholder: "タイトルを入力" %>
+    </div>
+    <div>
+      <p>本文</p>
+      <%= f.text_area :article_body, placeholder: "500文字以内で入力" %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>

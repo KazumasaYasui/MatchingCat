@@ -1,0 +1,26 @@
+<h1>イベント詳細ページ</h1>
+<div>
+  <div>イベント名：
+    <%= @event.event_title %>
+  </div>
+  <div>イベント概要：
+    <%= @event.event_body %>
+  </div>
+  <div>日時：
+    <%= @event.event_datetime %>
+  </div>
+  <div>場所：
+    <%= @event.event_place %>
+  </div>
+  <div>備考：
+    <%= @event.event_remark %>
+  </div>
+
+  <div>
+    <% if user_signed_in? && current_user.id == @event.user.id %>
+      <%= link_to 'イベント編集', edit_event_path(@event) %> |
+      <%= link_to 'イベント削除', event_path(@event), method: :delete,
+        data: {confirm: '本当に削除しますか？'} %>
+    <% end %>
+  </div>
+</div>

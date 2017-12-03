@@ -1,0 +1,49 @@
+<%= form_for(@cat) do |f| %>
+  <% if @cat.errors.any? %>
+    <div>
+      <ul>
+      <% @cat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <div>
+      <p>なまえ</p>
+      <%= f.text_field :cat_name, placeholder: "例）ハナコ" %>
+    </div>
+    <div>
+      <p>年齢</p>
+      <%= f.number_field :cat_age, placeholder: "数値で入力" %>
+    </div>
+    <div>
+      <p>性別</p>
+      <%= f.select :cat_sex,
+          Cat.cat_sexes_i18n.keys.
+          map{|k| [Cat.cat_sexes_i18n[k], k]},
+          {prompt: '選択してください'} %>
+    </div>
+    <div>
+      <p>品種</p>
+      <%= f.select :cat_breed,
+          Cat.cat_breeds_i18n.keys.
+          map{|k| [Cat.cat_breeds_i18n[k], k]},
+          {prompt: '選択してください'} %>
+    </div>
+    <div>
+      <p>募集地域</p>
+      <%= f.select :cat_prefecture,
+          Cat.cat_prefectures_i18n.keys.
+          map{|k| [Cat.cat_prefectures_i18n[k], k]},
+          {prompt: '選択してください'} %>
+    </div>
+    <div>
+      <p>説明</p>
+      <%= f.text_area :cat_description, placeholder: "500文字以内で入力" %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>

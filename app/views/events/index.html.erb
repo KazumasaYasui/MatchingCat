@@ -1,0 +1,13 @@
+<h1>イベント一覧ページ</h1>
+<p><%= notice %></p>
+<div>
+  <% @events.each do |event| %>
+    <div>
+      <%= link_to event_path(event) do %>
+        <div>イベント名：
+          <%= event.event_title %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

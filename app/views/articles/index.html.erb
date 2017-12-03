@@ -1,0 +1,13 @@
+<h1>記事一覧ページ</h1>
+<p><%= notice %></p>
+<div>
+  <% @articles.each do |article| %>
+    <div>
+      <%= link_to article_path(article) do %>
+        <div>タイトル：
+          <%= article.article_title %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

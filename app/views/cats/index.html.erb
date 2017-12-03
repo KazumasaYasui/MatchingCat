@@ -1,0 +1,28 @@
+<h1>保護猫一覧ページ</h1>
+<p><%= notice %></p>
+<div>
+  <% @cats.each do |cat| %>
+    <div>
+      <%= link_to cat_path(cat) do %>
+        <div>なまえ：
+          <%= cat.cat_name %>
+        </div>
+      <% end %>
+      <div>年齢：
+        <%= cat.cat_age %>
+      </div>
+      <div>性別：
+        <%= cat.cat_sex_i18n %>
+      </div>
+      <div>品種：
+        <%= cat.cat_breed_i18n %>
+      </div>
+      <div>募集地域：
+        <%= cat.cat_prefecture_i18n %>（他地域は要相談）
+      </div>
+      <div>説明：
+        <%= cat.cat_description %>
+      </div>
+    </div>
+  <% end %>
+</div>

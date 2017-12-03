@@ -1,0 +1,39 @@
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div>
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <div>
+      <p>イベント名</p>
+      <%= f.text_field :event_title, placeholder: "イベント名を入力" %>
+    </div>
+    <div>
+      <p>イベント概要</p>
+      <%= f.text_area :event_body, placeholder: "500文字以内で入力" %>
+    </div>
+    <p>日時</p>
+    <div class='input-group date datetimepicker'>
+      <%= f.text_field :event_datetime, class: 'form-control' %>
+      <span class="input-group-addon">
+        <span class="fa fa-calendar"></span>
+      </span>
+    </div>
+    <div>
+      <p>場所</p>
+      <%= f.text_field :event_place, placeholder: "開催場所を入力" %>
+    </div>
+    <div>
+      <p>備考</p>
+      <%= f.text_field :event_remark, placeholder: "備考を入力" %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>

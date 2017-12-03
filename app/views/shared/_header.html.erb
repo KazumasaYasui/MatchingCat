@@ -1,0 +1,71 @@
+<header>
+  <nav>
+    <div>
+      <%= link_to '(ΦωΦ)', root_path %>
+    </div>
+    <div>
+      <ul>
+        <% if user_signed_in? && current_user.admin == true %>
+          <li>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </li>
+          <li>
+            <%= link_to 'マイページ', user_path(current_user) %>
+          </li>
+          <li>
+            <%= link_to "保護猫一覧", cats_path %>
+          </li>
+          <li>
+            <%= link_to "記事一覧", articles_path %>
+          </li>
+          <li>
+            <%= link_to "イベント一覧", events_path %>
+          </li>
+          <li>
+            <%= link_to '保護猫登録', new_cat_path %>
+          </li>
+          <li>
+            <%= link_to '記事登録', new_article_path %>
+          </li>
+          <li>
+            <%= link_to 'イベント登録', new_event_path %>
+          </li>
+        <% elsif user_signed_in? && current_user.admin == false %>
+          <li>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </li>
+          <li>
+            <%= link_to "保護猫一覧", cats_path %>
+          </li>
+          <li>
+            <%= link_to "記事一覧", articles_path %>
+          </li>
+          <li>
+            <%= link_to "イベント一覧", events_path %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "会員登録", new_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to "ログイン", new_user_session_path %>
+          </li>
+          <li>
+            <%= link_to "保護猫一覧", cats_path %>
+          </li>
+          <li>
+            <%= link_to "記事一覧", articles_path %>
+          </li>
+          <li>
+            <%= link_to "イベント一覧", events_path %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div>
+      <% if user_signed_in? %>
+        <%= current_user.nickname %>でログイン中
+      <% end %>
+    </div>
+  </nav>
+</header>

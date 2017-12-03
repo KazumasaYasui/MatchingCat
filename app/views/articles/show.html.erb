@@ -1,0 +1,17 @@
+<h1>記事詳細ページ</h1>
+<div>
+  <div>タイトル：
+    <%= @article.article_title %>
+  </div>
+  <div>本文：
+    <%= @article.article_body %>
+  </div>
+
+  <div>
+    <% if user_signed_in? && current_user.id == @article.user.id %>
+      <%= link_to '記事編集', edit_article_path(@article) %> |
+      <%= link_to '記事削除', article_path(@article), method: :delete,
+        data: {confirm: '本当に削除しますか？'} %>
+    <% end %>
+  </div>
+</div>

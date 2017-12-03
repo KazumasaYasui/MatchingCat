@@ -1,0 +1,29 @@
+<h1>保護猫詳細ページ</h1>
+<div>
+  <div>なまえ：
+    <%= @cat.cat_name %>
+  </div>
+  <div>年齢：
+    <%= @cat.cat_age %>
+  </div>
+  <div>性別：
+    <%= @cat.cat_sex_i18n %>
+  </div>
+  <div>品種：
+    <%= @cat.cat_breed_i18n %>
+  </div>
+  <div>募集地域：
+    <%= @cat.cat_prefecture_i18n %>（他地域は要相談）
+  </div>
+  <div>説明：
+    <%= @cat.cat_description %>
+  </div>
+
+  <div>
+    <% if user_signed_in? && current_user.id == @cat.user.id %>
+      <%= link_to '保護猫編集', edit_cat_path(@cat) %> |
+      <%= link_to '保護猫削除', cat_path(@cat), method: :delete,
+        data: {confirm: '本当に削除しますか？'} %>
+    <% end %>
+  </div>
+</div>

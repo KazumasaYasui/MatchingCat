@@ -1,0 +1,11 @@
+<h1><%= @user.nickname %>のマイページ</h1>
+
+<div>
+  <%= link_to 'MyCatページ', my_cat_user_path(current_user) %>
+</div>
+<div>
+  <%= link_to 'MyArticleページ', my_article_user_path(current_user) %>
+</div>
+<div>
+  <%= link_to 'MyEventページ', my_event_user_path(current_user) %>
+</div>
