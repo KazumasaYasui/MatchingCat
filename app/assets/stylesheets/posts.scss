@@ -1,0 +1,109 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* つぶやき一覧ページ */
+.post_index_container{
+  width: 80%;
+  padding: 20px 0 0;
+  margin: 0 auto;
+  h1{
+    text-align: center;
+    font-size: 26px;
+  }
+  p{
+    text-align: center;
+  }
+  .post_index_box{
+    background: #fdf5e6;
+    padding: 40px 20px 20px;
+    border: 10px solid #fff;
+    border-radius: 20px;
+    .post_index_img_box{
+      text-align: center;
+      padding: 0 0 10px;
+      img{
+        border-radius: 50px;
+      }
+    }
+    .post_index_title_box{
+      text-align: center;
+      font-size: 18px;
+      color: #000;
+      padding: 0 0 10px;
+    }
+  }
+}
+
+/* つぶやき詳細ページ */
+.post_show_container{
+  width: 80%;
+  padding: 20px 0 0;
+  margin: 0 auto;
+  h1{
+    text-align: center;
+    font-size: 26px;
+  }
+  .post_show_box{
+    padding: 40px 0 40px;
+    overflow: hidden;
+    .post_show_img_box{
+      float: left;
+      width: 500px;
+      height: 500px;
+      img{
+        border-radius: 20px;
+      }
+      .right_radius{
+        border-radius: 0 20px 20px 0;
+      }
+      .left_radius{
+        border-radius: 20px 0 0 20px;
+      }
+      .sample_img_box{
+        img{
+          height: 500px;
+        }
+      }
+    }
+    .post_show_info_box{
+      float: left;
+      background: #fdf5e6;
+      width: 50%;
+      padding: 40px 40px 40px;
+      border-radius: 20px;
+      margin: 40px 0 0 40px;
+      .post_show_body_box{
+        line-height: 20px;
+        padding: 0 0 10px;
+      }
+      .post_show_link_box{
+        padding: 10px 0 20px;
+        a{
+          background: #f4ae26;
+          color: #fff;
+          padding: 10px 20px;
+          border-radius: 5px;
+          margin: 0 10px 0 0;
+        }
+        a:hover{
+          background: #ec8c2e;
+        }
+      }
+    }
+  }
+}
+
+/* つぶやき登録・編集ページ */
+.post_new_container,.post_edit_container{
+  width: 80%;
+  padding: 100px 0 100px;
+  margin: 0 auto;
+  h1{
+    text-align: center;
+    font-size: 26px;
+  }
+  .post_new_box,.post_edit_box{
+    padding: 40px 0 40px;
+  }
+}

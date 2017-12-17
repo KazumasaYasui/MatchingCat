@@ -1,28 +1,63 @@
-<h1>保護猫一覧ページ</h1>
-<p><%= notice %></p>
-<div>
-  <% @cats.each do |cat| %>
-    <div>
-      <%= link_to cat_path(cat) do %>
-        <div>なまえ：
-          <%= cat.cat_name %>
+<div class="cat_index_container">
+  <div class="cat_index_title_box">
+    <h1>保護ねこ一覧</h1>
+    <p><%= notice %></p>
+  </div>
+  <div class="cat_index_search_box">
+    <%= form_with( url:'/cats', local: true, method: :get ) do |f| %>
+      <div class="search_box">
+        <%= f.select :cat_sex, options_for_select(Cat.cat_sexes_i18n.invert, selected: params[:cat_sex]), prompt: "性別を選択" %>
+      </div>
+      <div class="search_box">
+        <%= f.select :cat_breed, options_for_select(Cat.cat_breeds_i18n.invert, selected: params[:cat_breed]), prompt: "種別を選択" %>
+      </div>
+      <div class="search_box">
+        <%= f.select :cat_prefecture, options_for_select(Cat.cat_prefectures_i18n.invert, selected: params[:cat_prefecture]), prompt: "募集地域を選択" %>
+      </div>
+      <div class="submit_box">
+        <%= f.submit "検索", class: 'btn' %>
+      </div>
+      <div class="clear"></div>
+    <% end %>
+  </div>
+  <div class="clear"></div>
+  <div class="container-fluid">
+    <div class="row">
+      <% @cats.each do |cat| %>
+        <div class="col-md-6 cat_index_box">
+          <%= link_to cat_path(cat) do %>
+            <div class="cat_index_img_box">
+              <% if cat.cat_images.present? %>
+                <%= attachment_image_tag cat.cat_images.first, :image, :fill, 200, 200, format: "jpg" %>
+              <% else %>
+                <%= image_tag '/images/cat_img_sample1.jpg', size: '200x200' %>
+              <% end %>
+            </div>
+          <% end %>
+          <div class="cat_index_name_box">
+            <%= cat.cat_name %>
+          </div>
+          <div class="cat_index_age_and_sex_box">
+            <div class="cat_index_age_box">
+              <%= cat.cat_age %>さい
+            </div>
+            <div class="cat_index_sex_box">
+              <% if cat.male? %>
+                <i class="fa fa-mars" aria-hidden="true"></i>
+              <% else %>
+                <i class="fa fa-venus" aria-hidden="true"></i>
+              <% end %>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="cat_index_breed_box">
+            <%= cat.cat_breed_i18n %>
+          </div>
         </div>
       <% end %>
-      <div>年齢：
-        <%= cat.cat_age %>
-      </div>
-      <div>性別：
-        <%= cat.cat_sex_i18n %>
-      </div>
-      <div>品種：
-        <%= cat.cat_breed_i18n %>
-      </div>
-      <div>募集地域：
-        <%= cat.cat_prefecture_i18n %>（他地域は要相談）
-      </div>
-      <div>説明：
-        <%= cat.cat_description %>
-      </div>
     </div>
-  <% end %>
+  </div>
+  <div class="paginate_box">
+    <%= paginate @cats %>
+  </div>
 </div>

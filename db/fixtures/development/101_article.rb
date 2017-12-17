@@ -1,4 +1,4 @@
-10.times do |i|
+50.times do |i|
   Article.seed_once(:id) do |article|
     article.id = i + 1
     article.user_id = rand(1..2)

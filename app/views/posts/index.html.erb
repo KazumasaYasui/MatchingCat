@@ -1,0 +1,27 @@
+<div class="post_index_container">
+  <h1>つぶやき一覧</h1>
+  <p><%= notice %></p>
+  <div class="container-fluid">
+    <div class="row">
+      <% @posts.each do |post| %>
+        <div class="col-md-6 post_index_box">
+          <%= link_to post_path(post) do %>
+            <div class="post_index_img_box">
+              <% if post.post_images.present? %>
+                <%= attachment_image_tag post.post_images.first, :image, :fill, 200, 200, format: "jpg" %>
+              <% else %>
+                <%= image_tag '/images/post_img_sample1.jpg', size: '200x200' %>
+              <% end %>
+            </div>
+          <% end %>
+          <div class="post_index_title_box">
+            <%= post.post_title %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="paginate_box">
+    <%= paginate @posts %>
+  </div>
+</div>

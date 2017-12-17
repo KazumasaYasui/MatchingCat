@@ -1,0 +1,64 @@
+<div class="post_show_container">
+  <h1><%= @post.post_title %></h1>
+  <div class="post_show_box">
+    <% if @post.post_images.present? && @post.post_images.second.present? %>
+      <div id="carousel-img" class="carousel slide post_show_img_box" data-ride="carousel">
+        <div class="carousel-inner">
+          <% @post.post_images.each_with_index do |image, i| %>
+            <div class="<%= i == 0 ? 'item active' : 'item' %>">
+              <%= attachment_image_tag image, :image, :fill, 500, 500, format: "jpg" %>
+            </div>
+          <% end %>
+        </div>
+        <ol class="carousel-indicators">
+          <% @post.post_images.each_with_index do |image, i| %>
+            <li data-target="#carousel-img" data-slide-to="<%= i %>" class="<%= i == 0 ? 'active' : '' %>"></li>
+          <% end %>
+        </ol>
+        <a class="left carousel-control fix left_radius" href="#carousel-img" data-slide="prev">
+          <span class="fa fa-caret-left glyphicon-chevron-left" aria-hidden="true"></span>
+        </a>
+        <a class="right carousel-control fix right_radius" href="#carousel-img" data-slide="next">
+          <span class="fa fa-caret-right glyphicon-chevron-right" aria-hidden="true"></span>
+        </a>
+      </div>
+    <% elsif @post.post_images.present? && @post.post_images.second.blank? %>
+      <div class="post_show_img_box">
+        <%= attachment_image_tag @post.post_images.first, :image, :fill, 500, 500, format: "jpg" %>
+      </div>
+    <% elsif @post.post_images.blank? %>
+      <div id="carousel-img" class="carousel slide post_show_img_box" data-ride="carousel">
+        <div class="carousel-inner sample_img_box">
+          <div class="item active">
+            <%= image_tag '/images/post_img_sample1.jpg', size: '500x500' %>
+          </div>
+          <div class="item">
+            <%= image_tag '/images/post_img_sample2.jpg', size: '500x500' %>
+          </div>
+        </div>
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-img" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-img" data-slide-to="1"></li>
+        </ol>
+        <a class="left carousel-control fix left_radius" href="#carousel-img" data-slide="prev">
+          <span class="fa fa-caret-left glyphicon-chevron-left" aria-hidden="true"></span>
+        </a>
+        <a class="right carousel-control fix right_radius" href="#carousel-img" data-slide="next">
+          <span class="fa fa-caret-right glyphicon-chevron-right" aria-hidden="true"></span>
+        </a>
+      </div>
+    <% end %>
+    <div class="post_show_info_box">
+      <div class="post_show_body_box">
+        <%= simple_format(@post.post_body) %>
+      </div>
+      <div class="post_show_link_box">
+        <% if user_signed_in? && current_user.id == @post.user.id %>
+          <%= link_to 'つぶやき編集', edit_post_path(@post) %>
+          <%= link_to 'つぶやき削除', post_path(@post), method: :delete,
+            data: {confirm: '本当に削除しますか？'} %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

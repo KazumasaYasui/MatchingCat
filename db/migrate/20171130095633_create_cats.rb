@@ -7,6 +7,7 @@ class CreateCats < ActiveRecord::Migration[5.1]
       t.integer :cat_breed
       t.integer :cat_prefecture
       t.text :cat_description
+      t.boolean :cat_status, default: true, null: false
       t.integer :user_id
 
       t.timestamps

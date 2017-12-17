@@ -1,3 +1,102 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* 記事一覧ページ */
+.article_index_container{
+  width: 80%;
+  padding: 20px 0 0;
+  margin: 0 auto;
+  h1{
+    text-align: center;
+    font-size: 26px;
+  }
+  p{
+    text-align: center;
+  }
+  .article_index_box{
+    background: #fdf5e6;
+    padding: 20px 20px 20px;
+    border: 10px solid #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    .article_index_img_box{
+      float: left;
+      width: 30%;
+      text-align: center;
+      img{
+        border-radius: 5px;
+      }
+    }
+    .article_index_title_box{
+      font-size: 32px;
+      color: #000;
+      text-align: center;
+      float: left;
+      width: 70%;
+      padding: 100px 0 0;
+    }
+  }
+}
+
+/* 記事詳細ページ */
+.article_show_container{
+  width: 80%;
+  padding: 20px 0 0;
+  margin: 0 auto;
+  h1{
+    text-align: center;
+    font-size: 26px;
+  }
+  .article_show_box{
+    padding: 40px 0 40px;
+    overflow: hidden;
+    .article_show_img_box{
+      float: left;
+      width: 40%;
+      text-align: center;
+      img{
+        border-radius: 20px;
+      }
+    }
+    .article_show_info_box{
+      float: left;
+      background: #fdf5e6;
+      width: 50%;
+      padding: 40px 40px 40px;
+      border-radius: 20px;
+      margin: 40px 0 0 40px;
+      .article_show_body_box{
+        line-height: 20px;
+        padding: 0 0 10px;
+      }
+      .article_show_link_box{
+        padding: 10px 0 20px;
+        a{
+          background: #f4ae26;
+          color: #fff;
+          padding: 10px 20px;
+          border-radius: 5px;
+          margin: 0 10px 0 0;
+        }
+        a:hover{
+          background: #ec8c2e;
+        }
+      }
+    }
+  }
+}
+
+/* 記事登録・編集ページ */
+.article_new_container,.article_edit_container{
+  width: 80%;
+  padding: 100px 0 100px;
+  margin: 0 auto;
+  h1{
+    text-align: center;
+    font-size: 26px;
+  }
+  .article_new_box,.article_edit_box{
+    padding: 40px 0 40px;
+  }
+}

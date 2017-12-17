@@ -1,3 +1,177 @@
 // Place all the styles related to the cats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* 保護ねこ一覧ページ */
+.cat_index_container{
+  width: 80%;
+  margin: 0 auto;
+  .cat_index_title_box{
+    float: left;
+    width: 40%;
+    padding: 20px 0 40px;
+    h1{
+      text-align: center;
+      font-size: 26px;
+    }
+    p{
+      text-align: center;
+    }
+  }
+  .cat_index_search_box{
+    float: right;
+    width: 60%;
+    padding: 40px 0 20px;
+    .search_box{
+      float: left;
+      padding: 5px 10px 0;
+      select{
+        color: #ec8c2e;
+        background: #ffefd5;
+      }
+    }
+    .submit_box{
+      float: left;
+      padding: 0 20px 0;
+      .btn{
+        background: #f4ae26;
+        color: #fff;
+        padding: 6px 16px;
+      }
+      .btn:hover{
+        background: #ec8c2e;
+      }
+    }
+  }
+  .cat_index_box{
+    background: #fdf5e6;
+    padding: 40px 20px 20px;
+    border: 10px solid #fff;
+    border-radius: 20px;
+    .cat_index_img_box{
+      text-align: center;
+      padding: 0 0 10px;
+      img{
+        border-radius: 50px;
+      }
+    }
+    .cat_index_name_box{
+      text-align: center;
+      font-size: 18px;
+      padding: 0 0 10px;
+    }
+    .cat_index_age_and_sex_box{
+      width: 40%;
+      margin: 0 auto;
+      padding: 0 0 10px;
+      .cat_index_age_box,.cat_index_sex_box{
+        float: left;
+        width: 50%;
+        text-align: center;
+        .fa-mars{
+          color: #1e90ff;
+        }
+        .fa-venus{
+          color: #ff7f50;
+        }
+      }
+    }
+    .cat_index_breed_box{
+      text-align: center;
+    }
+  }
+}
+
+/* 保護ねこ詳細ページ */
+.cat_show_container{
+  width: 80%;
+  padding: 20px 0 0;
+  margin: 0 auto;
+  h1{
+    text-align: center;
+    font-size: 26px;
+  }
+  .cat_show_box{
+    padding: 40px 0 40px;
+    overflow: hidden;
+    .cat_show_img_box{
+      float: left;
+      width: 500px;
+      height: 500px;
+      img{
+        border-radius: 20px;
+      }
+      .right_radius{
+        border-radius: 0 20px 20px 0;
+      }
+      .left_radius{
+        border-radius: 20px 0 0 20px;
+      }
+      .sample_img_box{
+        img{
+          height: 500px;
+        }
+      }
+    }
+    .cat_show_info_box{
+      float: left;
+      background: #fdf5e6;
+      width: 50%;
+      padding: 40px 40px 40px;
+      border-radius: 20px;
+      margin: 40px 0 0 40px;
+      .cat_show_name_box,.cat_show_age_box,.cat_show_sex_box,
+      .cat_show_breed_box,.cat_show_prefecture_box,
+      .cat_show_status_box,.cat_show_description_box{
+        line-height: 24px;
+        padding: 0 0 10px;
+      }
+      .cat_show_description_box{
+        overflow: hidden;
+        .cat_show_description_title,
+        .cat_show_description_content{
+          float: left;
+        }
+      }
+      .cat_show_order_box{
+        padding: 10px 0 20px;
+        input[type="submit"] {
+          background: #f4ae26;
+          color: #fff;
+          padding: 10px 20px;
+          border-radius: 5px;
+        }
+        input[type="submit"]:hover{
+          background: #ec8c2e;
+        }
+      }
+      .cat_show_link_box{
+        padding: 10px 0 20px;
+        a{
+          background: #f4ae26;
+          color: #fff;
+          padding: 10px 20px;
+          border-radius: 5px;
+          margin: 0 10px 0 0;
+        }
+        a:hover{
+          background: #ec8c2e;
+        }
+      }
+    }
+  }
+}
+
+/* 保護ねこ登録・編集ページ */
+.cat_new_container,.cat_edit_container{
+  width: 80%;
+  padding: 20px 0 20px;
+  margin: 0 auto;
+  h1{
+    text-align: center;
+    font-size: 26px;
+  }
+  .cat_new_box,.cat_edit_box{
+    padding: 40px 0 40px;
+  }
+}

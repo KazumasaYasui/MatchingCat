@@ -1,0 +1,33 @@
+<div class="view_reservation_container">
+  <h1>応募者情報入力</h1>
+  <div class="view_reservation_box">
+    <%= form_for(@reservation, url: complete_reservation_path) do |f| %>
+      <% if @reservation.errors.any? %>
+        <div class="form_error_box">
+          <ul>
+            <% @reservation.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="form_body_box">
+        <div class="form_box">
+          <p>代表者氏名</p>
+          <%= f.text_field :reservation_name, placeholder: '例）山田太郎' %>
+        </div>
+        <div class="form_box">
+          <p>代表者電話番号</p>
+          <%= f.number_field :reservation_tel, placeholder: '例）080-1234-5678' %>
+        </div>
+        <div class="form_box">
+          <p>参加希望人数</p>
+          <%= f.number_field :reservation_people, placeholder: '参加希望人数を入力' %>
+        </div>
+        <div class="form_btn_box">
+          <%= f.submit '応募します' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

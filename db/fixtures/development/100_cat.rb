@@ -1,4 +1,4 @@
-100.times do |i|
+50.times do |i|
   Cat.seed_once(:id) do |cat|
     cat.id = i + 1
     cat.user_id = rand(1..2)

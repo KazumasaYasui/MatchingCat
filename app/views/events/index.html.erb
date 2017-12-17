@@ -1,13 +1,25 @@
-<h1>イベント一覧ページ</h1>
-<p><%= notice %></p>
-<div>
-  <% @events.each do |event| %>
-    <div>
-      <%= link_to event_path(event) do %>
-        <div>イベント名：
-          <%= event.event_title %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+<div class="event_index_container">
+  <h1>イベント一覧</h1>
+  <p><%= notice %></p>
+  <div class="events_index_box">
+    <% @events.each do |event| %>
+      <div class="event_index_box">
+        <%= link_to event_path(event) do %>
+          <div class="event_index_img_box">
+            <% if event.image.present? %>
+              <%= attachment_image_tag event, :image, :fill, 200, 200, format: "jpg" %>
+            <% else %>
+              <%= image_tag '/images/event_img_sample.jpg', size: '200x200' %>
+            <% end %>
+          </div>
+          <div class="event_index_title_box">
+            「<%= event.event_title %>」
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="paginate_box">
+    <%= paginate @events %>
+  </div>
 </div>

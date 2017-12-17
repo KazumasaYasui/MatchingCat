@@ -6,4 +6,7 @@ class User < ApplicationRecord
   has_many :cats
   has_many :articles
   has_many :events
+  has_many :posts, dependent: :destroy
+  has_many :orders, dependent: :destroy
+  has_many :reservations, dependent: :destroy
 end

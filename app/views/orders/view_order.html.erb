@@ -1,0 +1,90 @@
+<div class="view_order_container">
+  <h1>応募者情報入力</h1>
+  <div class="view_order_box">
+    <%= form_for(@order, url: complete_order_path) do |f| %>
+      <% if @order.errors.any? %>
+        <div class="form_error_box">
+          <ul>
+            <% @order.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="form_body_box">
+        <div class="form_box">
+          <p>氏名</p>
+          <%= f.text_field :order_name, placeholder: '例）山田太郎' %>
+        </div>
+        <div class="form_box">
+          <p>電話番号</p>
+          <%= f.number_field :order_tel, placeholder: '例）080-1234-5678' %>
+        </div>
+        <div class="form_box">
+          <p>生年月日</p>
+          <%= raw sprintf(
+              f.date_select(
+                  :order_birth,
+                  use_month_numbers: true,
+                  start_year:        1930,
+                  end_year:          (Time.now.year),
+                  default:           Date.new(1989, 1, 1),
+                  date_separator:    '%s'),
+              '年 ', '月 ') + '日' %>
+        </div>
+        <div class="form_box">
+          <p>性別</p>
+          <%= f.select :order_sex,
+              Order.order_sexes_i18n.keys.
+              map{|k| [Order.order_sexes_i18n[k], k]},
+              {prompt: '選択してください'} %>
+        </div>
+        <div class="form_box">
+          <p>郵便番号</p>
+          <%= f.number_field :order_postal_code,
+              placeholder: '数値で入力してください　例）1000014' %>
+        </div>
+        <div class="form_box">
+          <p>都道府県</p>
+          <%= f.select :order_prefecture,
+              Order.order_prefectures_i18n.keys.
+              map{|k| [Order.order_prefectures_i18n[k], k]},
+              {prompt: '選択してください'} %>
+        </div>
+        <div class="form_box">
+          <p>市区町村</p>
+          <%= f.text_field :order_city,
+              placeholder: '例）千代田区永田町' %>
+        </div>
+        <div class="form_box">
+          <p>丁目・番地・号</p>
+          <%= f.text_field :order_address,
+              placeholder: '例）１−７−１' %>
+        </div>
+        <div class="form_box">
+          <p>職業</p>
+          <%= f.text_field :order_occupation,
+              placeholder: '例）公務員' %>
+        </div>
+        <div class="form_box">
+          <p>年収</p>
+          <%= f.number_field :order_income,
+              placeholder: '数値で入力してください　例）400／万円' %>
+        </div>
+        <div class="form_box">
+          <p>住居タイプ</p>
+          <%= f.text_field :order_residence,
+              placeholder: '例）一戸建て' %>
+        </div>
+        <div class="form_box">
+          <p>ねこへの愛情</p>
+          <%= f.text_area :order_description,
+              placeholder: 'ねこへの愛情を500文字以内でご入力ください' %>
+        </div>
+        <div class="form_btn_box">
+          <%= f.submit '応募します' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

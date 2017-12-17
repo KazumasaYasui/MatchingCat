@@ -1,14 +1,21 @@
-<h1><%= @user.nickname %>のマイページ</h1>
-
-<h2><%= @user.nickname %>の記事一覧</h2>
-<div>
-  <% @articles.each do |article| %>
-    <div>
-      <%= link_to article_path(article) do %>
-        <div>タイトル：
-          <%= article.article_title %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+<div class="myarticle_index_container">
+  <h1><%= @user.nickname %>のMyArticleページ</h1>
+  <div class="myarticles_index_box">
+    <% @articles.each do |article| %>
+      <div class="myarticle_index_box">
+        <%= link_to article_path(article) do %>
+          <div class="myarticle_index_img_box">
+            <% if article.image.present? %>
+              <%= attachment_image_tag article, :image, :fill, 200, 200, format: "jpg" %>
+            <% else %>
+              <%= image_tag '/images/article_img_sample.jpg', size: '200x200' %>
+            <% end %>
+          </div>
+          <div class="myarticle_index_title_box">
+            『<%= article.article_title %>』
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>

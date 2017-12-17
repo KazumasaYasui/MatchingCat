@@ -88,4 +88,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # JS,CSSのプリコンパイルの追加設定
+  # config.assets.precompile += ['*.js','*.css']
 end

@@ -5,7 +5,13 @@ class CatsController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def index
-    @cats = Cat.all.order(created_at: :desc)
+    # reset_session
+    @cats = Cat.all.includes(:cat_images)
+               .order(created_at: :desc)
+               .page(params[:page]).per(20)
+               .get_by_cat_sex(params[:cat_sex].presence)
+               .get_by_cat_breed(params[:cat_breed].presence)
+               .get_by_cat_prefecture(params[:cat_prefecture].presence)
   end
 
   def show
@@ -26,7 +32,7 @@ class CatsController < ApplicationController
     @cat = Cat.new(cat_params)
     @cat.user_id = current_user.id
     if @cat.save
-      redirect_to @cat, notice: '保護猫が作成されました。'
+      redirect_to @cat, notice: '保護ネコが作成されました。'
     else
       render :new
     end
@@ -34,7 +40,7 @@ class CatsController < ApplicationController
 
   def update
     if @cat.update(cat_params)
-      redirect_to @cat, notice: '保護猫が更新されました。'
+      redirect_to @cat, notice: '保護ネコが更新されました。'
     else
       render :edit
     end
@@ -42,7 +48,7 @@ class CatsController < ApplicationController
 
   def destroy
     @cat.destroy
-      redirect_to cats_path, notice: '保護猫が削除されました。'
+      redirect_to cats_path, notice: '保護ネコが削除されました。'
   end
 
   private
@@ -54,7 +60,8 @@ class CatsController < ApplicationController
       params.require(:cat)
             .permit(
               :cat_name, :cat_age, :cat_sex, :cat_breed,
-              :cat_prefecture, :cat_description, :user_id
+              :cat_prefecture, :cat_description, :user_id,
+              cat_images_images: []
             )
     end
 

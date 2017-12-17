@@ -1,26 +1,54 @@
-<h1>イベント詳細ページ</h1>
-<div>
-  <div>イベント名：
-    <%= @event.event_title %>
-  </div>
-  <div>イベント概要：
-    <%= @event.event_body %>
-  </div>
-  <div>日時：
-    <%= @event.event_datetime %>
-  </div>
-  <div>場所：
-    <%= @event.event_place %>
-  </div>
-  <div>備考：
-    <%= @event.event_remark %>
-  </div>
-
-  <div>
-    <% if user_signed_in? && current_user.id == @event.user.id %>
-      <%= link_to 'イベント編集', edit_event_path(@event) %> |
-      <%= link_to 'イベント削除', event_path(@event), method: :delete,
-        data: {confirm: '本当に削除しますか？'} %>
-    <% end %>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAeLd55AQ76_8N-bI9Ulj1KySqY35V5giE&callback=initMap">
+</script>
+<div class="event_show_container">
+  <h1><%= @event.event_title %></h1>
+  <div class="event_show_box">
+    <div class="event_show_img_box">
+      <% if @event.image.present? %>
+        <%= attachment_image_tag @event, :image, :fill, 500, 500, format: "jpg" %>
+      <% else %>
+        <%= image_tag '/images/event_img_sample.jpg', size: '500x500' %>
+      <% end %>
+    </div>
+    <div class="event_show_info_box">
+      <div class="event_show_body_box">
+        <p class="event_show_body_title">概要：</p>
+        <%= simple_format(@event.event_body, class: 'event_show_body_content') %>
+      </div>
+      <div class="event_show_datetime_box">日時：
+        <%= @event.event_datetime.strftime("%Y年%m月%d日, %H時開始") %>
+      </div>
+      <div class="event_show_address_box">場所：
+        <%= @event.event_address %>
+      </div>
+      <div class="event_show_people_box">参加可人数：
+        <% if @event.event_people > 0 %>
+          <%= @event.event_people %>
+        <% else %>
+          応募終了
+        <% end %>
+      </div>
+      <div class="event_show_remark_box">備考：
+        <%= @event.event_remark %>
+      </div>
+      <div class="event_show_reservation_box">
+        <% if @event.event_people > 0 %>
+          <%= form_tag create_reservation_path, method: :post do |f| %>
+            <%= hidden_field_tag :event_id, @event.id %>
+            <%= submit_tag '応募フォームへ' %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="event_show_link_box">
+        <% if user_signed_in? && current_user.id == @event.user.id %>
+          <%= link_to 'イベント編集', edit_event_path(@event) %>
+          <%= link_to 'イベント削除', event_path(@event), method: :delete,
+            data: {confirm: '本当に削除しますか？'} %>
+        <% end %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div id="map"></div>
   </div>
 </div>

@@ -1,34 +1,37 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :nickname %><br />
-    <%= f.text_field :nickname, autofocus: true %>
+<div class="registration_new_container">
+  <h1>会員登録</h1>
+  <div class="registration_new_box">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="form_error_box">
+        <%= devise_error_messages! %>
+      </div>
+      <div class="form_body_box">
+        <div class="form_box">
+          <%= f.label :ニックネーム %><br />
+          <%= f.text_field :nickname, autofocus: true %>
+        </div>
+        <div class="form_box">
+          <%= f.label :Eメール %><br />
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+        <div class="form_box">
+          <%= f.label :パスワード %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %>文字以上で入力してください)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+        <div class="form_box">
+          <%= f.label :確認用パスワード %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+        <div class="form_btn_box">
+          <%= f.submit "会員登録" %>
+        </div>
+      </div>
+    <% end %>
+    <div class="form_render_box">
+      <%= render "users/shared/links" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

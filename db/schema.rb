@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171201103548) do
+ActiveRecord::Schema.define(version: 20171215152221) do
 
   create_table "articles", force: :cascade do |t|
     t.string "article_title"
     t.text "article_body"
+    t.string "image_id"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cat_images", force: :cascade do |t|
+    t.string "image_id"
+    t.integer "cat_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -27,6 +35,7 @@ ActiveRecord::Schema.define(version: 20171201103548) do
     t.integer "cat_breed"
     t.integer "cat_prefecture"
     t.text "cat_description"
+    t.boolean "cat_status", default: true, null: false
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -36,9 +45,57 @@ ActiveRecord::Schema.define(version: 20171201103548) do
     t.string "event_title"
     t.text "event_body"
     t.string "event_remark"
-    t.string "event_place"
     t.datetime "event_datetime"
+    t.string "event_address"
+    t.integer "event_people"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "image_id"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "order_name"
+    t.string "order_tel"
+    t.date "order_birth"
+    t.integer "order_sex"
+    t.string "order_postal_code"
+    t.integer "order_prefecture"
+    t.string "order_city"
+    t.string "order_address"
+    t.string "order_occupation"
+    t.integer "order_income"
+    t.string "order_residence"
+    t.text "order_description"
+    t.integer "user_id"
+    t.integer "cat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "post_images", force: :cascade do |t|
+    t.string "image_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "post_title"
+    t.text "post_body"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.string "reservation_name"
+    t.string "reservation_tel"
+    t.integer "reservation_people"
+    t.integer "user_id"
+    t.integer "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -5,6 +5,8 @@ class UsersController < ApplicationController
   def show
     if current_user.admin?
       @user = User.find(params[:id])
+    else
+      @user = User.find(params[:id])
     end
   end
 
@@ -27,5 +29,10 @@ class UsersController < ApplicationController
     if current_user.admin?
       @events = @user.events.order(created_at: :desc)
     end
+  end
+
+  def my_post
+    @user = User.find(params[:id])
+    @posts = @user.posts.order(created_at: :desc)
   end
 end

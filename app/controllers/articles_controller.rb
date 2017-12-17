@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all.order(created_at: :desc)
+                       .page(params[:page]).per(20)
   end
 
   def show
@@ -53,7 +54,7 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article)
             .permit(
-              :article_title, :article_body, :user_id
+              :article_title, :article_body, :image, :user_id
             )
     end
 

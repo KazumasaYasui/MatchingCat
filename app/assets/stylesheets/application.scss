@@ -15,17 +15,30 @@
  * require_self
  */
 
-/*bootstrapの設定*/
+/*bootstrap及びfont-awesome、GoogleFontsの設定*/
 @import "bootstrap-sprockets";
-@import "bootstrap";
-@import 'bootstrap-datetimepicker';
-@import 'font-awesome';
+@import "bootstrap-custom";
+@import "bootstrap-datetimepicker";
+@import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy|Boogaloo');
+/* SCSSファイルの読み込み */
+// @import "reset";
+@import "home";
+@import "header";
+@import "users";
+@import "cats";
+@import "articles";
+@import "events";
+@import "posts";
+@import "form";
+@import "orders";
+@import "reservations";
+@import "footer";
 
 /* レスポンシブの設定 */
 $widthPC: 1024px; //PC
 $widthTab: 768px; //タブレット
 $widthSp: 568px; //スマートフォン
-
 @mixin tab {
   @media (min-width: $widthTab) and (max-width: ($widthPC)) {
     @content;
@@ -34,5 +47,42 @@ $widthSp: 568px; //スマートフォン
 @mixin sp {
   @media (max-width: ($widthTab)) {
     @content;
+  }
+}
+
+/* 基本設定 */
+html,body{
+  height: 100%;
+  margin: 0;
+}
+body{
+  // background-color: whitesmoke;
+  color: #000;
+  height: 100%;
+  margin: 0px;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+}
+a{
+  text-decoration: none!important;
+}
+ul{
+  list-style: none!important;
+}
+.clear{
+  clear: both;
+}
+div.paginate_box{
+  text-align: center;
+  ul.pagination{
+    .active a{
+      color: #fff;
+      background-color: #ec8c2e;
+      border-color: #ec8c2e;
+    }
+    li a{
+      color: #ec8c2e;
+    }
   }
 }

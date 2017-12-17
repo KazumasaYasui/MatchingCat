@@ -1,23 +1,27 @@
-<%= form_for(@article) do |f| %>
-  <% if @article.errors.any? %>
-    <div>
+<%= form_for(article) do |f| %>
+  <% if article.errors.any? %>
+    <div class="form_error_box">
       <ul>
-      <% @article.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% article.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-  <div>
-    <div>
+  <div class="form_body_box">
+    <div class="form_box">
       <p>タイトル</p>
       <%= f.text_field :article_title, placeholder: "タイトルを入力" %>
     </div>
-    <div>
+    <div class="form_box">
       <p>本文</p>
       <%= f.text_area :article_body, placeholder: "500文字以内で入力" %>
     </div>
-    <div>
+    <div class="form_box">
+      <p>記事画像</p>
+      <%= f.attachment_field :image %>
+    </div>
+    <div class="form_btn_box">
       <%= f.submit %>
     </div>
   </div>

@@ -6,9 +6,13 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all.order(created_at: :desc)
+                   .page(params[:page]).per(20)
   end
 
   def show
+    gon.latitude = @event.latitude
+    gon.longitude = @event.longitude
+    gon.address = @event.event_address
   end
 
   def new
@@ -54,7 +58,8 @@ class EventsController < ApplicationController
       params.require(:event)
             .permit(
               :event_title, :event_body, :event_remark,
-              :event_place, :event_datetime, :user_id
+              :event_datetime, :event_address, :image,
+              :latitude, :longitude, :user_id, :event_people
             )
     end
 

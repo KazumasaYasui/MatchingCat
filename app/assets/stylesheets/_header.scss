@@ -1,0 +1,43 @@
+header{
+  overflow: hidden;
+  .logo_box{
+    background: url("/images/logo.png") no-repeat top;
+    float: left;
+    width: 70%;
+    height: 150px;
+  }
+  .login_box{
+    float: right;
+    width: 30%;
+    padding: 80px 0 40px;
+    color: #070707;
+  }
+}
+
+.header_nav{
+  width: 100%;
+  background-color: #ec8c2e;
+  ul{
+    list-style: none;
+    border-bottom: 4px solid #ec8c2e;
+    display: flex;
+    margin: 0;
+    padding: 0 4px 0;
+    li{
+      flex: 1 0 auto;
+      a{
+        display: block;
+        padding: 20px 20px;
+        text-decoration: none;
+        text-align: center;
+        font-size: 16px;
+        color: #fff;
+      }
+      a:hover{
+        background: #fff;
+        color: #ec8c2e;
+        border-radius: 0 0 5px 5px;
+      }
+    }
+  }
+}
