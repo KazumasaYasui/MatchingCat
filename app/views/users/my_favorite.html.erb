@@ -1,0 +1,67 @@
+<div class="myfavorite_index_container">
+  <h1><%= @user.nickname %>のお気に入り保護ねこページ</h1>
+  <div class="myfavorite_index_box">
+    <% if @favorites.blank? %>
+      <div class="no_myfavorite_box">
+        お気に入りされた保護ねこはありません
+      </div>
+    <% else %>
+      <div class="myfavorite_box">
+        <table>
+          <thead>
+            <tr>
+              <th><i class="fa fa-camera" aria-hidden="true"></i></th>
+              <th>なまえ</th>
+              <th>年齢</th>
+              <th>性別</th>
+              <th>品種</th>
+              <th>募集地域</th>
+              <th>募集状況</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @favorites.each do |favorite| %>
+              <tr>
+                <td>
+                  <%= link_to cat_path(favorite.cat) do %>
+                    <% if favorite.cat.cat_images.present? %>
+                      <div>
+                        <%= attachment_image_tag favorite.cat.cat_images.first, :image, :fill, 120, 120, format: "jpg" %>
+                      </div>
+                    <% else %>
+                      <div>
+                        <%= image_tag '/images/cat_img_sample1.jpg', size: '120x120' %>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= favorite.cat.cat_name %>
+                </td>
+                <td>
+                  <%= favorite.cat.cat_age %>
+                </td>
+                <td>
+                  <%= favorite.cat.cat_sex_i18n %>
+                </td>
+                <td>
+                  <%= favorite.cat.cat_breed_i18n %>
+                </td>
+                <td>
+                  <%= favorite.cat.cat_prefecture_i18n %>
+                </td>
+                <td>
+                  <% if favorite.cat.cat_status == true %>
+                    募集中
+                  <% else %>
+                    募集終了
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  </div>
+</div>

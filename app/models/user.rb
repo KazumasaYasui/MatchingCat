@@ -9,4 +9,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :reservations, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+
+  validates :nickname, presence: true,
+                       length: { minimum: 4, maximum: 10 }
 end

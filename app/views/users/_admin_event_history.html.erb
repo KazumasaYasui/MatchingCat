@@ -1,0 +1,42 @@
+<div class="event_history_index_container">
+  <h1><%= @user.nickname %>のイベント応募者一覧ページ</h1>
+  <div class="event_history_index_box">
+    <table>
+      <thead>
+        <tr>
+          <th>応募者氏名</th>
+          <th>応募者TEL</th>
+          <th>応募者人数</th>
+          <th>応募イベント</th>
+          <th>応募日時</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user_events.each do |event| %>
+          <% if event.reservations.present? %>
+            <% event.reservations.each do |reservation| %>
+            <tr>
+              <td>
+                <%= reservation.reservation_name %>
+              </td>
+              <td>
+                <%= reservation.reservation_tel %>
+              </td>
+              <td>
+                <%= reservation.reservation_people %>
+              </td>
+              <td>
+                <%= reservation.event.event_title %>
+              </td>
+              <td>
+                <%= reservation.updated_at.in_time_zone('Tokyo')
+                    .strftime("%Y年%m月%d日 %H時%M分") %>
+              </td>
+            </tr>
+            <% end %>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

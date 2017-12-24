@@ -21,6 +21,7 @@ class OrdersController < ApplicationController
     @order = current_order
     @order.attributes = order_params
     if @order.save(context: :complete_order)
+      CatMailer.send_when_complete(current_user).deliver
       redirect_to cats_path, notice: '応募が完了しました！'
       @order.cat.cat_status = false
       @order.cat.save

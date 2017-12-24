@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171215152221) do
+ActiveRecord::Schema.define(version: 20171221092951) do
 
   create_table "articles", force: :cascade do |t|
     t.string "article_title"
@@ -52,6 +52,13 @@ ActiveRecord::Schema.define(version: 20171215152221) do
     t.float "longitude"
     t.string "image_id"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "cat_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

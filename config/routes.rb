@@ -9,11 +9,16 @@ Rails.application.routes.draw do
     get 'my_article', on: :member
     get 'my_event', on: :member
     get 'my_post', on: :member
+    get 'cat_history', on: :member
+    get 'event_history', on: :member
+    get 'my_favorite', on: :member
   end
   # resources :categories, only:[:index, :show]
   resources :articles
+  resources :cats do
+    resource :favorites, only:[:create, :destroy]
+  end
   resources :events
-  resources :cats
   resources :posts
   post 'create_order', to: 'orders#create_order'
   get 'view_order', to: 'orders#view_order'

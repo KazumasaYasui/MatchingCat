@@ -1,8 +1,8 @@
 class Article < ApplicationRecord
   belongs_to :user
 
-  validates :article_title, presence: true
-  validates :article_body, presence: true, length: { maximum: 500 }
+  validates :article_title, presence: true, length: { maximum: 25 }
+  validates :article_body, presence: true, length: { maximum: 400 }
 
   attachment :image
   validates_presence_of :image

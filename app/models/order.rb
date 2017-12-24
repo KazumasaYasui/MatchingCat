@@ -3,17 +3,31 @@ class Order < ApplicationRecord
   belongs_to :cat
 
   with_options on: :complete_order do |complete|
-  complete.validates :order_name, presence: true
-  complete.validates :order_tel, presence: true
+  complete.validates :order_name, presence: true,
+                                  length: { maximum: 25 }
+  complete.validates :order_tel, presence: true,
+                                 format: {
+                                  with: /\A\d+-\d+-\d+\z/
+                                 }
   complete.validates :order_birth, presence: true
   complete.validates :order_sex, presence: true
-  complete.validates :order_postal_code, presence: true
+  complete.validates :order_postal_code, presence: true,
+                                         format: {
+                                          with: /\A\d{7}\z/
+                                         }
   complete.validates :order_prefecture, presence: true
-  complete.validates :order_city, presence: true
-  complete.validates :order_address, presence: true
-  complete.validates :order_occupation, presence: true
-  complete.validates :order_residence, presence: true
-  complete.validates :order_description, presence: true
+  complete.validates :order_city, presence: true,
+                                  length: { maximum: 50 }
+  complete.validates :order_address, presence: true,
+                                     length: { maximum: 50 }
+  complete.validates :order_occupation, presence: true,
+                                        numericality: {
+                                         greater_than: 0
+                                        }
+  complete.validates :order_residence, presence: true,
+                                       length: { maximum: 25 }
+  complete.validates :order_description, presence: true,
+                                         length: { maximum: 400 }
   end
 
   enum order_sex: { male:0, female:1, other:2 }

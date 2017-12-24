@@ -2,13 +2,15 @@ class Cat < ApplicationRecord
   belongs_to :user
   has_many :cat_images, dependent: :destroy
   has_one :order, dependent: :destroy
-  validates :cat_name, presence: true
+  has_many :favorites, dependent: :destroy
+
+  validates :cat_name, presence: true, length: { maximum: 25 }
   validates :cat_age, presence: true,
                       numericality: { greater_than_or_equal_to: 0 }
   validates :cat_sex, presence: true
   validates :cat_breed, presence: true
   validates :cat_prefecture, presence: true
-  validates :cat_description, length: { maximum: 500 }
+  validates :cat_description, length: { maximum: 400 }
   validates :cat_image, presence: true
 
   accepts_attachments_for :cat_images, attachment: :image
@@ -26,6 +28,10 @@ scope :get_by_cat_breed, -> (cat_breed) {
 scope :get_by_cat_prefecture, -> (cat_prefecture) {
   where( cat_prefecture: cat_prefecture ) unless cat_prefecture.nil?
 }
+
+  def favorited_by? user
+    favorites.where(user_id: user.id).exists?
+  end
 
   private
   def cat_image

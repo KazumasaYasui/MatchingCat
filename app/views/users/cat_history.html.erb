@@ -1,0 +1,5 @@
+<% if @current_user.admin? %>
+  <%= render partial: "admin_cat_history" %>
+<% else %>
+  <%= render partial: "user_cat_history" %>
+<% end %>

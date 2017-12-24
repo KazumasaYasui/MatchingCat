@@ -1,19 +1,51 @@
 ja:
-  # activerecord:
-  #   attributes:
-  #     user:
-  #       nickname: ニックネーム
-  #       password: パスワード
-  #       password_confirmation: 確認用パスワード
-  #       email: メールアドレス
-  #       remember_me: 次回から自動的にログイン
-  #     cat:
-  #       cat_name: なまえ
-  #       cat_age: 年齢
-  #       cat_sex: 性別
-  #       cat_breed: 品種
-  #       cat_prefecture: 募集地域
-  #       cat_description: 説明
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        email: メールアドレス
+        remember_me: 次回から自動的にログイン
+      cat:
+        cat_name: なまえ
+        cat_age: 年齢
+        cat_sex: 性別
+        cat_breed: 品種
+        cat_prefecture: 募集地域
+        cat_description: 説明
+        cat_image: 写真
+      article:
+        article_title: タイトル
+        article_body: 本文
+        image: 写真
+      post:
+        post_title: タイトル
+        post_body: 本文
+        post_image: 写真
+      event:
+        event_title: イベント名
+        event_body: イベント内容
+        event_remark: 備考
+        event_datetime: 開催日時
+        event_address: 開催場所
+        event_people: 参加可能人数
+        image: 写真
+      order:
+        order_name: 応募者氏名
+        order_tel: 電話番号
+        order_sex: 性別
+        order_postal_code: 郵便番号
+        order_prefecture: 都道府県
+        order_city: 市区町村
+        order_address: 丁目・番地・号
+        order_occupation: 年収
+        order_residence: 住居タイプ
+        order_description: 保護ねこ応募の理由
+      reservation:
+        reservation_name: 応募者氏名
+        reservation_tel: 電話番号
+        reservation_people: 参加希望人数
   enums:
     cat:
       cat_sex:

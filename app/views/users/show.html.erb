@@ -8,6 +8,12 @@
     <ul>
       <% if current_user.admin %>
         <li>
+          <%= link_to '保護ねこ応募者一覧', cat_history_user_path(current_user) %>
+        </li>
+        <li>
+          <%= link_to 'イベント応募者一覧', event_history_user_path(current_user) %>
+        </li>
+        <li>
           <%= link_to 'MyCatページ', my_cat_user_path(current_user) %>
         </li>
         <li>
@@ -32,6 +38,18 @@
           <%= link_to 'つぶやき投稿', new_post_path %>
         </li>
       <% else %>
+        <li>
+          <%= link_to "プロフィール変更",edit_user_registration_path(current_user) %>
+        </li>
+        <li>
+          <%= link_to 'お気に入り保護ねこ', my_favorite_user_path(current_user) %>
+        </li>
+        <li>
+          <%= link_to '保護ねこ応募履歴', cat_history_user_path(current_user) %>
+        </li>
+        <li>
+          <%= link_to 'イベント応募履歴', event_history_user_path(current_user) %>
+        </li>
         <li>
           <%= link_to 'MyPostページ', my_post_user_path(current_user) %>
         </li>

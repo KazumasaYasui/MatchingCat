@@ -24,7 +24,7 @@
       </div>
       <div class="event_show_people_box">参加可人数：
         <% if @event.event_people > 0 %>
-          <%= @event.event_people %>
+          残り<%= @event.event_people %>人
         <% else %>
           応募終了
         <% end %>

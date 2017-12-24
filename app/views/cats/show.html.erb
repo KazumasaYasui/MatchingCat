@@ -79,6 +79,13 @@
         <p class="cat_show_description_title">説明：</p>
         <%= simple_format(@cat.cat_description, class: 'cat_show_description_content') %>
       </div>
+      <div class="cat_show_favorite_box">お気に入り：
+        <% if @cat.favorited_by? current_user %>
+          <%= link_to fa_icon("star", class: 'favorite_true' ) , cat_favorites_path(@cat), method: :delete %>
+        <% else %>
+          <%= link_to fa_icon("star", class: 'favorite_false' ) , cat_favorites_path(@cat), method: :post %>
+        <% end %>
+      </div>
       <div class="cat_show_order_box">
         <% if @cat.cat_status == true %>
           <%= form_tag create_order_path, method: :post do |f| %>

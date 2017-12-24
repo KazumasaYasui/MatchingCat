@@ -19,6 +19,7 @@ class ReservationsController < ApplicationController
     @reservation = current_reservation
     @reservation.attributes = reservation_params
     if @reservation.save(context: :complete_reservation)
+      EventMailer.send_when_complete(current_user).deliver
       redirect_to events_path, notice: '応募が完了しました！'
       @reservation.event.event_people -= @reservation.reservation_people
       @reservation.event.save

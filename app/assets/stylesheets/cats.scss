@@ -120,9 +120,10 @@
       padding: 40px 40px 40px;
       border-radius: 20px;
       margin: 40px 0 0 40px;
-      .cat_show_name_box,.cat_show_age_box,.cat_show_sex_box,
-      .cat_show_breed_box,.cat_show_prefecture_box,
-      .cat_show_status_box,.cat_show_description_box{
+      .cat_show_name_box,.cat_show_age_box,
+      .cat_show_sex_box,.cat_show_breed_box,
+      .cat_show_prefecture_box,.cat_show_status_box,
+      .cat_show_description_box,.cat_show_favorite_box{
         line-height: 24px;
         padding: 0 0 10px;
       }
@@ -131,6 +132,14 @@
         .cat_show_description_title,
         .cat_show_description_content{
           float: left;
+        }
+      }
+      .cat_show_favorite_box{
+        .favorite_true{
+          color: #ec8c2e;
+        }
+        .favorite_false{
+          color: #000;
         }
       }
       .cat_show_order_box{

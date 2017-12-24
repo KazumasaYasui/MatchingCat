@@ -1,0 +1,40 @@
+<div class="cat_history_index_container">
+  <h1><%= @user.nickname %>の保護ねこ応募履歴ページ</h1>
+  <div class="cat_history_index_box">
+    <table>
+      <thead>
+        <tr>
+          <th>お名前</th>
+          <th>電話番号</th>
+          <th>生年月日</th>
+          <th>応募保護ねこ</th>
+          <th>応募日時</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+            <% if order.present? %>
+              <tr>
+                <td>
+                  <%= order.order_name %>
+                </td>
+                <td>
+                  <%= order.order_tel %>
+                </td>
+                <td>
+                  <%= order.order_birth.strftime("%Y年%m月%d日") %>
+                </td>
+                <td>
+                  <%= order.cat.cat_name %>
+                </td>
+                <td>
+                  <%= order.updated_at.in_time_zone('Tokyo')
+                      .strftime("%Y年%m月%d日 %H時%M分") %>
+                </td>
+              </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
