@@ -7,7 +7,7 @@
   </div>
 </header>
 <nav class="header_nav">
-  <ul>
+  <ul id="header_menu">
     <% if user_signed_in? && current_user.admin == true %>
       <li>
         <%= link_to "ホーム", root_path %>

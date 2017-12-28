@@ -39,7 +39,8 @@ ja:
         order_prefecture: 都道府県
         order_city: 市区町村
         order_address: 丁目・番地・号
-        order_occupation: 年収
+        order_occupation: 職業
+        order_income: 年収
         order_residence: 住居タイプ
         order_description: 保護ねこ応募の理由
       reservation:

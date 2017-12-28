@@ -1,19 +1,24 @@
-<div class="cat_history_index_container">
-  <h1><%= @user.nickname %>の保護ねこ応募履歴ページ</h1>
-  <div class="cat_history_index_box">
-    <table>
-      <thead>
-        <tr>
-          <th>お名前</th>
-          <th>電話番号</th>
-          <th>生年月日</th>
-          <th>応募保護ねこ</th>
-          <th>応募日時</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @orders.each do |order| %>
-            <% if order.present? %>
+<div class="user_cat_history_index_container">
+  <h1><%= @user.nickname %>さまの保護ねこ応募履歴ページ</h1>
+  <div class="user_cat_history_index_box">
+    <% if @orders.blank? %>
+      <div class="no_cat_history_box">
+        まだ<%= @user.nickname %>さまの応募はありません
+      </div>
+    <% else %>
+      <table>
+        <thead>
+          <tr>
+            <th>お名前</th>
+            <th>電話番号</th>
+            <th>生年月日</th>
+            <th>応募保護ねこ</th>
+            <th>応募日時</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <% if order.present? && order.order_name.present? %>
               <tr>
                 <td>
                   <%= order.order_name %>
@@ -32,9 +37,10 @@
                       .strftime("%Y年%m月%d日 %H時%M分") %>
                 </td>
               </tr>
+            <% end %>
           <% end %>
-        <% end %>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    <% end %>
   </div>
 </div>

@@ -7,11 +7,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
   </head>
 
   <body>
     <%= render "shared/header" %>
     <%= yield %>
     <%= render "shared/footer" %>
+    <%= render "shared/slicknav" %>
   </body>
 </html>

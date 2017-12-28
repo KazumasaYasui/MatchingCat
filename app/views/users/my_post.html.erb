@@ -1,23 +1,29 @@
 <div class="mypost_index_container">
-  <h1><%= @user.nickname %>のMyPostページ</h1>
-  <div class="container-fluid">
-    <div class="row">
-      <% @posts.each do |post| %>
-        <div class="col-md-6 mypost_index_box">
-          <%= link_to post_path(post) do %>
-            <div class="mypost_index_img_box">
-              <% if post.post_images.present? %>
-                <%= attachment_image_tag post.post_images.first, :image, :fill, 200, 200, format: "jpg" %>
-              <% else %>
-                <%= image_tag '/images/post_img_sample1.jpg', size: '200x200' %>
-              <% end %>
-            </div>
-          <% end %>
-          <div class="mypost_index_title_box">
-            <%= post.post_title %>
-          </div>
-        </div>
-      <% end %>
+  <h1><%= @user.nickname %>さまのMyPostページ</h1>
+  <% if @posts.blank? %>
+    <div class="no_mypost_box">
+      まだ<%= @user.nickname %>さまの投稿はありません
     </div>
-  </div>
+  <% else %>
+    <div class="container-fluid">
+      <div class="row">
+        <% @posts.each do |post| %>
+          <div class="col-md-6 mypost_index_box">
+            <%= link_to post_path(post) do %>
+              <div class="mypost_index_img_box">
+                <% if post.post_images.present? %>
+                  <%= attachment_image_tag post.post_images.first, :image, :fill, 200, 200, format: "jpg" %>
+                <% else %>
+                  <%= image_tag '/images/post_img_sample1.jpg', size: '200x200' %>
+                <% end %>
+              </div>
+            <% end %>
+            <div class="mypost_index_title_box">
+              <%= post.post_title %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>

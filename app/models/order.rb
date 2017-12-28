@@ -21,9 +21,11 @@ class Order < ApplicationRecord
   complete.validates :order_address, presence: true,
                                      length: { maximum: 50 }
   complete.validates :order_occupation, presence: true,
-                                        numericality: {
-                                         greater_than: 0
-                                        }
+                                        length: { maximum: 25 }
+  complete.validates :order_income, presence: true,
+                                    numericality: {
+                                      greater_than: 0
+                                    }
   complete.validates :order_residence, presence: true,
                                        length: { maximum: 25 }
   complete.validates :order_description, presence: true,

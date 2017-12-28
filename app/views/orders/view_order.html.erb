@@ -18,7 +18,7 @@
         </div>
         <div class="form_box">
           <p>電話番号</p>
-          <%= f.number_field :order_tel, placeholder: '例）080-1234-5678' %>
+          <%= f.text_field :order_tel, placeholder: '例）080-1234-5678' %>
         </div>
         <div class="form_box">
           <p>生年月日</p>
@@ -42,7 +42,7 @@
         <div class="form_box">
           <p>郵便番号</p>
           <%= f.number_field :order_postal_code,
-              placeholder: '数値で入力してください　例）1000014' %>
+              placeholder: '数値で入力　例）1000014' %>
         </div>
         <div class="form_box">
           <p>都道府県</p>
@@ -69,7 +69,7 @@
         <div class="form_box">
           <p>年収</p>
           <%= f.number_field :order_income,
-              placeholder: '数値で入力してください　例）400／万円' %>
+              placeholder: '数値で入力　例）400／万円' %>
         </div>
         <div class="form_box">
           <p>住居タイプ</p>
@@ -79,7 +79,7 @@
         <div class="form_box">
           <p>ねこへの愛情</p>
           <%= f.text_area :order_description,
-              placeholder: 'ねこへの愛情を500文字以内でご入力ください' %>
+              placeholder: 'ねこへの愛情を400文字以内でご入力ください' %>
         </div>
         <div class="form_btn_box">
           <%= f.submit '応募します' %>

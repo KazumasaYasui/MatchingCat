@@ -1,21 +1,27 @@
 <div class="myevent_index_container">
-  <h1><%= @user.nickname %>のMyEventページ</h1>
-  <div class="myevents_index_box">
-    <% @events.each do |event| %>
-      <div class="myevent_index_box">
-        <%= link_to event_path(event) do %>
-          <div class="myevent_index_img_box">
-            <% if event.image.present? %>
-              <%= attachment_image_tag event, :image, :fill, 200, 200, format: "jpg" %>
-            <% else %>
-              <%= image_tag '/images/event_img_sample.jpg', size: '200x200' %>
-            <% end %>
-          </div>
-          <div class="myevent_index_title_box">
-            「<%= event.event_title %>」
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+  <h1><%= @user.nickname %>さんのMyEventページ</h1>
+  <% if @events.blank? %>
+    <div class="no_myevent_box">
+      まだ<%= @user.nickname %>さんのイベントはありません
+    </div>
+  <% else %>
+    <div class="myevents_index_box">
+      <% @events.each do |event| %>
+        <div class="myevent_index_box">
+          <%= link_to event_path(event) do %>
+            <div class="myevent_index_img_box">
+              <% if event.image.present? %>
+                <%= attachment_image_tag event, :image, :fill, 200, 200, format: "jpg" %>
+              <% else %>
+                <%= image_tag '/images/event_img_sample.jpg', size: '200x200' %>
+              <% end %>
+            </div>
+            <div class="myevent_index_title_box">
+              「<%= event.event_title %>」
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

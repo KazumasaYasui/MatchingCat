@@ -1,13 +1,17 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "responsive";
 
 .home_container{
   background: url("/images/back.jpg") no-repeat center;
   position: relative;
   background-size: cover;
-  // width:100%;
   height: 100%;
+  @include sp {
+    width:100%;
+    height: 80%;
+  };
 }
 
 .home_container::before{
@@ -27,22 +31,33 @@
   position: absolute;
   width: 100%;
   text-align: center;
-  h1{
+  div{
     font-family: 'Boogaloo', cursive;
     font-size: 32px;
     color: #fff;
     margin: 0;
-    padding: 600px 0 0;
+    padding: 640px 0 0;
+    @include sp {
+      font-size: 18px;
+      padding: 360px 0 0;
+    };
     span{
       font-family: 'Luckiest Guy', cursive;
       font-size: 64px;
       color: #ec8c2e;
+      @include sp {
+        font-size: 32px;
+      }
     }
   }
   p{
     font-family: 'Boogaloo', cursive;
     font-size: 28px;
     color: #fff;
+    margin: 10px 0 10px;
+    @include sp {
+      font-size: 18px;
+    };
   }
 }
 

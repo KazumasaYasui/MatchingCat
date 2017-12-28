@@ -49,8 +49,8 @@ group :development, :test do
   # pry機能
   gem 'pry-rails'
   # テスト向けの機能
-  # gem 'rspec-rails', '~> 3.6'
-  # gem 'factory_bot_rails'
+  gem 'rspec-rails', '~> 3.6'
+  gem 'factory_bot_rails'
   # 開発・テスト環境ではsqlite3を使用
   # gem 'sqlite3'
 end

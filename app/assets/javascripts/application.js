@@ -17,5 +17,4 @@
 //= require moment
 //= require moment/ja.js
 //= require bootstrap-datetimepicker
-//= stub common
 //= require_tree .

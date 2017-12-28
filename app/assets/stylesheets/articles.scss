@@ -7,6 +7,10 @@
   width: 80%;
   padding: 20px 0 0;
   margin: 0 auto;
+  @include sp {
+    width: 100%;
+    padding: 10px 0 0;
+  };
   h1{
     text-align: center;
     font-size: 26px;
@@ -20,10 +24,17 @@
     border: 10px solid #fff;
     border-radius: 20px;
     overflow: hidden;
+    @include sp {
+      padding: 10px 10px 10px;
+    };
     .article_index_img_box{
       float: left;
       width: 30%;
       text-align: center;
+      @include sp {
+        float: none;
+        width: 100%;
+      };
       img{
         border-radius: 5px;
       }
@@ -35,6 +46,12 @@
       float: left;
       width: 70%;
       padding: 100px 0 0;
+      @include sp {
+        font-size: 24px;
+        float: none;
+        width: 100%;
+        padding: 10px 0 10px;
+      };
     }
   }
 }
@@ -44,6 +61,10 @@
   width: 80%;
   padding: 20px 0 0;
   margin: 0 auto;
+  @include sp {
+    width: 100%;
+    padding: 10px 0 10px;
+  };
   h1{
     text-align: center;
     font-size: 26px;
@@ -51,12 +72,32 @@
   .article_show_box{
     padding: 40px 0 40px;
     overflow: hidden;
+    @include sp {
+      padding: 10px 0 10px;
+    };
     .article_show_img_box{
       float: left;
       width: 40%;
       text-align: center;
-      img{
+      @include sp {
+        float: none;
+        width: 100%;
+      };
+      img.article_show_img,
+      img.article_show_sample_img{
         border-radius: 20px;
+        @include sp {
+          display: none;
+        };
+      }
+      img.sp_article_show_img,
+      img.sp_article_show_sample_img{
+          display: none;
+        @include sp {
+          display: block;
+          border-radius: 20px;
+          margin: 0 auto;
+        };
       }
     }
     .article_show_info_box{
@@ -66,6 +107,12 @@
       padding: 40px 40px 40px;
       border-radius: 20px;
       margin: 40px 0 0 40px;
+      @include sp {
+        float: none;
+        width: 100%;
+        padding: 40px 40px 10px;
+        margin: 10px 0 10px;
+      };
       .article_show_body_box{
         line-height: 20px;
         padding: 0 0 10px;
@@ -78,6 +125,9 @@
           padding: 10px 20px;
           border-radius: 5px;
           margin: 0 10px 0 0;
+          @include sp {
+            padding: 10px 10px;
+          };
         }
         a:hover{
           background: #ec8c2e;
@@ -92,11 +142,18 @@
   width: 80%;
   padding: 100px 0 100px;
   margin: 0 auto;
+  @include sp {
+    width: 100%;
+    padding: 10px 0 10px;
+  };
   h1{
     text-align: center;
     font-size: 26px;
   }
   .article_new_box,.article_edit_box{
     padding: 40px 0 40px;
+    @include sp {
+      padding: 10px 0 10px;
+    };
   }
 }

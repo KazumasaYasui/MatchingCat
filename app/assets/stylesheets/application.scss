@@ -34,21 +34,9 @@
 @import "orders";
 @import "reservations";
 @import "footer";
+@import "responsive";
+@import "slicknav";
 
-/* レスポンシブの設定 */
-$widthPC: 1024px; //PC
-$widthTab: 768px; //タブレット
-$widthSp: 568px; //スマートフォン
-@mixin tab {
-  @media (min-width: $widthTab) and (max-width: ($widthPC)) {
-    @content;
-  }
-}
-@mixin sp {
-  @media (max-width: ($widthTab)) {
-    @content;
-  }
-}
 
 /* 基本設定 */
 html,body{
@@ -59,7 +47,7 @@ body{
   color: #000;
   height: 100%;
   margin: 0px;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: "Mplus 1p", verdana, arial, helvetica, sans-serif;
   font-size: 14px;
   line-height: 18px;
 }
@@ -68,6 +56,9 @@ a{
 }
 ul{
   list-style: none!important;
+}
+h1{
+  font-family: "Rounded Mplus 1c", verdana, arial, helvetica, sans-serif!important;
 }
 /* floatのクリア機能 */
 .clear{

@@ -1,14 +1,14 @@
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAeLd55AQ76_8N-bI9Ulj1KySqY35V5giE&callback=initMap">
-</script>
+<%= render 'google_api' %>
 <div class="event_show_container">
   <h1><%= @event.event_title %></h1>
   <div class="event_show_box">
     <div class="event_show_img_box">
       <% if @event.image.present? %>
-        <%= attachment_image_tag @event, :image, :fill, 500, 500, format: "jpg" %>
+        <%= attachment_image_tag @event, :image, :fill, 500, 500, format: "jpg", class: 'event_show_img' %>
+        <%= attachment_image_tag @event, :image, :fill, 250, 250, format: "jpg", class: 'sp_event_show_img' %>
       <% else %>
-        <%= image_tag '/images/event_img_sample.jpg', size: '500x500' %>
+        <%= image_tag '/images/event_img_sample.jpg', size: '500x500', class: 'event_show_sample_img' %>
+        <%= image_tag '/images/event_img_sample.jpg', size: '250x250', class: 'sp_event_show_sample_img' %>
       <% end %>
     </div>
     <div class="event_show_info_box">

@@ -1,4 +1,4 @@
-<%= javascript_include_tag "common.js" %>
+<%= render 'datetimepicker' %>
 <%= form_for(event) do |f| %>
   <% if event.errors.any? %>
     <div class="form_error_box">

@@ -5,12 +5,23 @@ header{
     float: left;
     width: 70%;
     height: 150px;
+    @include sp {
+      background: url("/images/logo_sp.png") no-repeat top;
+      width: 100%;
+      float: none;
+      height: 100px;
+    };
   }
   .login_box{
     float: right;
     width: 30%;
     padding: 80px 0 40px;
     color: #070707;
+    @include sp {
+      width: 100%;
+      float: none;
+      padding: 10px 10px;
+    };
   }
 }
 
@@ -40,4 +51,17 @@ header{
       }
     }
   }
+}
+
+/* レスポンシブデザイン */
+#header_menu{
+  @include sp {
+    display: none;
+  };
+}
+.slicknav_menu{
+  display: none;
+  @include sp {
+    display: block;
+  };
 }

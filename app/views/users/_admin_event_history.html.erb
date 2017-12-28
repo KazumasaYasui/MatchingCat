@@ -1,42 +1,58 @@
-<div class="event_history_index_container">
-  <h1><%= @user.nickname %>のイベント応募者一覧ページ</h1>
-  <div class="event_history_index_box">
-    <table>
-      <thead>
-        <tr>
-          <th>応募者氏名</th>
-          <th>応募者TEL</th>
-          <th>応募者人数</th>
-          <th>応募イベント</th>
-          <th>応募日時</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @user_events.each do |event| %>
-          <% if event.reservations.present? %>
-            <% event.reservations.each do |reservation| %>
+<div class="admin_event_history_index_container">
+  <h1><%= @user.nickname %>さんのイベント応募者一覧ページ</h1>
+  <div class="admin_event_history_index_box">
+    <% if @user_events.present? %>
+      <table>
+        <thead>
+          <tr>
+            <th>応募イベント</th>
+            <th>応募者氏名</th>
+            <th>応募者TEL</th>
+            <th>応募者人数</th>
+            <th>応募日時</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user_events.each do |event| %>
             <tr>
-              <td>
-                <%= reservation.reservation_name %>
-              </td>
-              <td>
-                <%= reservation.reservation_tel %>
-              </td>
-              <td>
-                <%= reservation.reservation_people %>
-              </td>
-              <td>
-                <%= reservation.event.event_title %>
-              </td>
-              <td>
-                <%= reservation.updated_at.in_time_zone('Tokyo')
-                    .strftime("%Y年%m月%d日 %H時%M分") %>
-              </td>
+              <td><%= event.event_title %></td>
+              <% if event.reservations.present? %>
+                <td class="event_info_td" colspan="4">
+                  <table class="event_sub_table">
+                    <% event.reservations.each do |reservation| %>
+                      <% if reservation.reservation_name.present? %>
+                        <tr>
+                          <td>
+                          <%= reservation.reservation_name %>
+                          </td>
+                          <td>
+                          <%= reservation.reservation_tel %>
+                          </td>
+                          <td>
+                          <%= reservation.reservation_people %>
+                          </td>
+                          <td>
+                          <%= reservation.updated_at.in_time_zone('Tokyo')
+                          .strftime("%Y年%m月%d日 %H時%M分") %>
+                          </td>
+                        </tr>
+                      <% else %>
+                        <tr>
+                          <td colspan="4">まだ応募が完了していません</td>
+                        </tr>
+                      <% end %>
+                    <% end %>
+                  </table>
+                </td>
+              <% else %>
+                <td colspan="4">まだ応募されていません</td>
+              <% end %>
             </tr>
-            <% end %>
           <% end %>
-        <% end %>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    <% else %>
+      <div class="no_event">準備中</div>
+    <% end %>
   </div>
 </div>

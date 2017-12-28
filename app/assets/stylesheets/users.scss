@@ -5,16 +5,28 @@
 /* ユーザーページ */
 .user_mypage_container{
   width: 80%;
+  min-height: 645px;
   padding: 20px 0 80px;
   margin: 0 auto;
+  @include sp {
+    width: 100%;
+    min-height: 400px;
+    padding: 10px 0 10px;
+  };
   h1{
     text-align: center;
     font-size: 26px;
     padding: 10px 0 20px;
+    @include sp {
+      font-size: 20px;
+    };
   }
   nav{
     width: 80%;
     margin: 0 auto;
+    @include sp {
+      width: 90%;
+    };
     ul{
       margin: 0;
       padding: 0;
@@ -39,6 +51,10 @@
         text-decoration: none;
         padding: 20px 40px;
         color: #000;
+        @include sp {
+          padding: 15px 0;
+          text-align: center;
+        }
       }
       a:hover{
         color: #fff;
@@ -50,13 +66,28 @@
 /* MyCatページ */
 .mycat_index_container{
   width: 80%;
+  min-height: 645px;
   margin: 0 auto;
+  @include sp {
+    width: 100%;
+    min-height: 400px;
+  };
   .mycat_index_title_box{
     padding: 20px 0 40px;
+    @include sp {
+      padding: 10px 0 10px;
+    };
     h1{
       text-align: center;
       font-size: 26px;
+      @include sp {
+        font-size: 20px;
+      };
     }
+  }
+  .no_mycat_box{
+    text-align: center;
+    padding: 50px 0 50px;
   }
   .mycat_index_box{
     background: #fdf5e6;
@@ -100,11 +131,24 @@
 /* MyArticleページ */
 .myarticle_index_container{
   width: 80%;
+  min-height: 645px;
   padding: 20px 0 0;
   margin: 0 auto;
+  @include sp {
+    width: 100%;
+    min-height: 400px;
+    padding: 10px 0 0;
+  };
   h1{
     text-align: center;
     font-size: 26px;
+    @include sp {
+      font-size: 20px;
+    };
+  }
+  .no_myarticle_box{
+    text-align: center;
+    padding: 50px 0 50px;
   }
   .myarticle_index_box{
     background: #fdf5e6;
@@ -112,10 +156,17 @@
     border: 10px solid #fff;
     border-radius: 20px;
     overflow: hidden;
+    @include sp {
+      padding: 10px 10px 10px;
+    };
     .myarticle_index_img_box{
       float: left;
       width: 30%;
       text-align: center;
+      @include sp {
+        float: none;
+        width: 100%;
+      };
       img{
         border-radius: 5px;
       }
@@ -127,6 +178,12 @@
       float: left;
       width: 70%;
       padding: 100px 0 0;
+      @include sp {
+        font-size: 24px;
+        float: none;
+        width: 100%;
+        padding: 10px 0 10px;
+      };
     }
   }
 }
@@ -134,11 +191,24 @@
 /* MyEventページ */
 .myevent_index_container{
   width: 80%;
+  min-height: 645px;
   padding: 20px 0 0;
   margin: 0 auto;
+  @include sp {
+    width: 100%;
+    min-height: 400px;
+    padding: 10px 0 0;
+  };
   h1{
     text-align: center;
     font-size: 26px;
+    @include sp {
+      font-size: 20px;
+    };
+  }
+  .no_myevent_box{
+    text-align: center;
+    padding: 50px 0 50px;
   }
   .myevent_index_box{
     background: #fdf5e6;
@@ -146,10 +216,17 @@
     border: 10px solid #fff;
     border-radius: 20px;
     overflow: hidden;
+    @include sp {
+      padding: 10px 10px 10px;
+    };
     .myevent_index_img_box{
       float: left;
       width: 30%;
       text-align: center;
+      @include sp {
+        float: none;
+        width: 100%;
+      };
       img{
         border-radius: 5px;
       }
@@ -161,6 +238,12 @@
       float: left;
       width: 70%;
       padding: 100px 0 0;
+      @include sp {
+        font-size: 24px;
+        float: none;
+        width: 100%;
+        padding: 10px 0 10px;
+      };
     }
   }
 }
@@ -168,17 +251,33 @@
 /* MyPostページ */
 .mypost_index_container{
   width: 80%;
+  min-height: 645px;
   padding: 20px 0 0;
   margin: 0 auto;
+  @include sp {
+    width: 100%;
+    min-height: 400px;
+    padding: 10px 0 0;
+  };
   h1{
     text-align: center;
     font-size: 26px;
+    @include sp {
+      font-size: 20px;
+    };
+  }
+  .no_mypost_box{
+    text-align: center;
+    padding: 50px 0 50px;
   }
   .mypost_index_box{
     background: #fdf5e6;
     padding: 40px 20px 20px;
     border: 10px solid #fff;
     border-radius: 20px;
+    @include sp {
+      padding: 10px 10px 10px;
+    };
     .mypost_index_img_box{
       text-align: center;
       padding: 0 0 10px;
@@ -195,23 +294,39 @@
   }
 }
 
-/* 保護ねこ応募者一覧・履歴ページ、イベント応募者一覧・履歴ページ */
-.cat_history_index_container,
-.event_history_index_container{
+/* 保護ねこ履歴ページ、イベント履歴ページ(一般ユーザー) */
+.user_cat_history_index_container,
+.user_event_history_index_container{
   min-height: 645px;
   width: 80%;
   padding: 40px 0 40px;
   margin: 0 auto;
+  @include sp {
+    width: 100%;
+    min-height: 400px;
+    padding: 10px 0 10px;
+  };
   h1{
     text-align: center;
     font-size: 26px;
     padding: 0 0 40px;
+    @include sp {
+      font-size: 20px;
+      padding: 0 0 10px;
+    };
   }
-  .cat_history_index_box,
-  .event_history_index_box{
+  .user_cat_history_index_box,
+  .user_event_history_index_box{
     background: #fdf5e6;
     padding: 60px 20px 60px;
     border-radius: 10px;
+    @include sp {
+      padding: 30px 10px 30px;
+    };
+    .no_cat_history_box,
+    .no_event_history_box{
+      text-align: center;
+    }
     table{
       border: 2px solid #fff;
       border-collapse: separate;
@@ -265,21 +380,124 @@
   }
 }
 
+/* 保護ねこ応募者一覧ページ、イベント応募者一覧ページ(管理者) */
+.admin_cat_history_index_container,
+.admin_event_history_index_container{
+  min-height: 645px;
+  width: 80%;
+  padding: 40px 0 40px;
+  margin: 0 auto;
+  @include sp {
+    width: 100%;
+    min-height: 400px;
+    padding: 10px 0 10px;
+  };
+  h1{
+    text-align: center;
+    font-size: 26px;
+    padding: 0 0 40px;
+    @include sp {
+      font-size: 20px;
+      padding: 0 0 10px;
+    };
+  }
+  .admin_cat_history_index_box,
+  .admin_event_history_index_box{
+    background: #fdf5e6;
+    padding: 60px 20px 60px;
+    border-radius: 10px;
+    @include sp {
+      padding: 30px 10px 30px;
+    };
+    table{
+      border: 2px solid #fff;
+      border-collapse: separate;
+      border-spacing: 0;
+      text-align: center;
+      line-height: 1.8;
+      margin: 0 auto;
+      tr{
+        th{
+          border-bottom: 2px solid #fff;
+          border-left: 2px solid #fff;
+          padding: 10px;
+          font-weight: bold;
+          text-align: center;
+          color: #fff;
+          background: #ec8c2e;
+          &:first-child{
+            border-left: none;
+          }
+        }
+      }
+      tr{
+        td{
+          border-bottom: 2px solid #fff;
+          border-left: 2px solid #fff;
+          padding: 10px;
+          text-align: center;
+          background: #f4ae26;
+          &:first-child{
+            border-left: none;
+          }
+        }
+        &:last-child{
+          td{
+            border-bottom: none;
+          }
+        }
+        td.event_info_td{
+          padding: 0;
+          table.event_sub_table{
+            width: 100%;
+            border: none;
+            tr{
+              td{
+                border-bottom: 2px solid #fff;
+              }
+              &:last-child{
+                td{
+                  border-bottom: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    div.no_cat, div.no_event{
+      text-align: center;
+    }
+  }
+}
+
 /* お気に入り保護ねこページ */
 .myfavorite_index_container{
   min-height: 645px;
   width: 80%;
   padding: 40px 0 40px;
   margin: 0 auto;
+  @include sp {
+    width: 100%;
+    min-height: 400px;
+    padding: 10px 0 10px;
+  };
   h1{
     text-align: center;
     font-size: 26px;
     padding: 0 0 40px;
+    @include sp {
+      font-size: 20px;
+      padding: 0 0 10px;
+    };
   }
   .myfavorite_index_box{
     background: #fdf5e6;
     padding: 60px 20px 60px;
     border-radius: 10px;
+    @include sp {
+      padding: 30px 10px 30px;
+    };
     .no_myfavorite_box{
       text-align: center;
     }
@@ -304,10 +522,19 @@
             &:first-child{
               border-left: none;
               border-radius: 10px 0 0 0;
+              @include sp {
+                display: none;
+              };
             }
             &:last-child{
               border-radius: 0 10px 0 0;
             }
+          }
+          .sp_th{
+            @include sp {
+              border-left: none;
+              border-radius: 10px 0 0 0;
+            };
           }
         }
         tr{
@@ -319,6 +546,9 @@
             background: #f4ae26;
             &:first-child{
               border-left: none;
+              @include sp {
+                display: none;
+              };
             }
           }
           &:last-child{
@@ -331,6 +561,16 @@
                 border-radius: 0 0 10px 0;
               }
             }
+            .sp_td{
+              @include sp {
+                border-radius: 0 0 0 10px;
+              };
+            }
+          }
+          .sp_td{
+            @include sp {
+              border-left: none;
+            };
           }
         }
       }

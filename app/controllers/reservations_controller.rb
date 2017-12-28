@@ -23,6 +23,7 @@ class ReservationsController < ApplicationController
       redirect_to events_path, notice: '応募が完了しました！'
       @reservation.event.event_people -= @reservation.reservation_people
       @reservation.event.save
+      # binding.pry
       session[:reservation_id] = nil
     else
       render :view_reservation

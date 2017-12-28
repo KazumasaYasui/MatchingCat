@@ -1,41 +1,47 @@
 <div class="mycat_index_container">
   <div class="mycat_index_title_box">
-    <h1><%= @user.nickname %>のMyCatページ</h1>
+    <h1><%= @user.nickname %>さんのMyCatページ</h1>
   </div>
-  <div class="container-fluid">
-    <div class="row">
-      <% @cats.each do |cat| %>
-        <div class="col-md-6 mycat_index_box">
-          <%= link_to cat_path(cat) do %>
-            <div class="mycat_index_img_box">
-              <% if cat.cat_images.present? %>
-                <%= attachment_image_tag cat.cat_images.first, :image, :fill, 200, 200, format: "jpg" %>
-              <% else %>
-                <%= image_tag '/images/cat_img_sample1.jpg', size: '200x200' %>
-              <% end %>
-            </div>
-          <% end %>
-          <div class="mycat_index_name_box">
-            <%= cat.cat_name %>
-          </div>
-          <div class="mycat_index_age_and_sex_box">
-            <div class="mycat_index_age_box">
-              <%= cat.cat_age %>さい
-            </div>
-            <div class="mycat_index_sex_box">
-              <% if cat.male? %>
-                <i class="fa fa-mars" aria-hidden="true"></i>
-              <% else %>
-                <i class="fa fa-venus" aria-hidden="true"></i>
-              <% end %>
-            </div>
-            <div class="clear"></div>
-          </div>
-          <div class="mycat_index_breed_box">
-            <%= cat.cat_breed_i18n %>
-          </div>
-        </div>
-      <% end %>
+  <% if @cats.blank? %>
+    <div class="no_mycat_box">
+      まだ<%= @user.nickname %>さんの保護ねこはありません
     </div>
-  </div>
+  <% else %>
+    <div class="container-fluid">
+      <div class="row">
+        <% @cats.each do |cat| %>
+          <div class="col-md-6 mycat_index_box">
+            <%= link_to cat_path(cat) do %>
+              <div class="mycat_index_img_box">
+                <% if cat.cat_images.present? %>
+                  <%= attachment_image_tag cat.cat_images.first, :image, :fill, 200, 200, format: "jpg" %>
+                <% else %>
+                  <%= image_tag '/images/cat_img_sample1.jpg', size: '200x200' %>
+                <% end %>
+              </div>
+            <% end %>
+            <div class="mycat_index_name_box">
+              <%= cat.cat_name %>
+            </div>
+            <div class="mycat_index_age_and_sex_box">
+              <div class="mycat_index_age_box">
+                <%= cat.cat_age %>さい
+              </div>
+              <div class="mycat_index_sex_box">
+                <% if cat.male? %>
+                  <i class="fa fa-mars" aria-hidden="true"></i>
+                <% else %>
+                  <i class="fa fa-venus" aria-hidden="true"></i>
+                <% end %>
+              </div>
+              <div class="clear"></div>
+            </div>
+            <div class="mycat_index_breed_box">
+              <%= cat.cat_breed_i18n %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>

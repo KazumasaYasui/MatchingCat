@@ -6,10 +6,18 @@
 .cat_index_container{
   width: 80%;
   margin: 0 auto;
+  @include sp {
+    width: 100%;
+  };
   .cat_index_title_box{
     float: left;
     width: 40%;
     padding: 20px 0 40px;
+    @include sp {
+      float: none;
+      width: 100%;
+      padding: 10px 0 10px;
+    };
     h1{
       text-align: center;
       font-size: 26px;
@@ -22,9 +30,18 @@
     float: right;
     width: 60%;
     padding: 40px 0 20px;
+    @include sp {
+      float: none;
+      width: 100%;
+      padding: 10px 0 10px;
+    };
     .search_box{
       float: left;
       padding: 5px 10px 0;
+      @include sp {
+        float: none;
+        text-align: right;
+      };
       select{
         color: #ec8c2e;
         background: #ffefd5;
@@ -33,6 +50,11 @@
     .submit_box{
       float: left;
       padding: 0 20px 0;
+      @include sp {
+        float: none;
+        text-align: right;
+        padding: 5px 10px 0;
+      };
       .btn{
         background: #f4ae26;
         color: #fff;
@@ -87,6 +109,9 @@
   width: 80%;
   padding: 20px 0 0;
   margin: 0 auto;
+  @include sp {
+    width: 100%;
+  };
   h1{
     text-align: center;
     font-size: 26px;
@@ -94,10 +119,16 @@
   .cat_show_box{
     padding: 40px 0 40px;
     overflow: hidden;
+    @include sp {
+      padding: 10px 0 10px;
+    };
     .cat_show_img_box{
       float: left;
-      width: 500px;
-      height: 500px;
+      margin: 50px 0 0;
+      @include sp {
+        float: none;
+        margin: 0;
+      }
       img{
         border-radius: 20px;
       }
@@ -107,11 +138,6 @@
       .left_radius{
         border-radius: 20px 0 0 20px;
       }
-      .sample_img_box{
-        img{
-          height: 500px;
-        }
-      }
     }
     .cat_show_info_box{
       float: left;
@@ -120,6 +146,11 @@
       padding: 40px 40px 40px;
       border-radius: 20px;
       margin: 40px 0 0 40px;
+      @include sp {
+        float: none;
+        width: 100%;
+        margin: 10px 0 10px;
+      }
       .cat_show_name_box,.cat_show_age_box,
       .cat_show_sex_box,.cat_show_breed_box,
       .cat_show_prefecture_box,.cat_show_status_box,
@@ -162,6 +193,9 @@
           padding: 10px 20px;
           border-radius: 5px;
           margin: 0 10px 0 0;
+          @include sp {
+            padding: 10px 10px;
+          };
         }
         a:hover{
           background: #ec8c2e;
@@ -176,11 +210,18 @@
   width: 80%;
   padding: 20px 0 20px;
   margin: 0 auto;
+  @include sp {
+    width: 100%;
+    padding: 10px 0 10px;
+  };
   h1{
     text-align: center;
     font-size: 26px;
   }
   .cat_new_box,.cat_edit_box{
     padding: 40px 0 40px;
+    @include sp {
+      padding: 10px 0 10px;
+    };
   }
 }
