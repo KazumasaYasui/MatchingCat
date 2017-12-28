@@ -1,7 +1,7 @@
-<div class="view_reservation_container">
+<div class="reservation_new_container">
   <h1>応募者情報入力</h1>
-  <div class="view_reservation_box">
-    <%= form_for(@reservation, url: complete_reservation_path) do |f| %>
+  <div class="reservation_new_box">
+    <%= form_for(@reservation) do |f| %>
       <% if @reservation.errors.any? %>
         <div class="form_error_box">
           <ul>
@@ -24,6 +24,7 @@
           <p>参加希望人数</p>
           <%= f.number_field :reservation_people, placeholder: '参加希望人数を入力 最大10人まで' %>
         </div>
+        <%= f.hidden_field :event_id %>
         <div class="form_btn_box">
           <%= f.submit '応募します' %>
         </div>

@@ -20,27 +20,21 @@
                 <td class="event_info_td" colspan="4">
                   <table class="event_sub_table">
                     <% event.reservations.each do |reservation| %>
-                      <% if reservation.reservation_name.present? %>
-                        <tr>
-                          <td>
-                          <%= reservation.reservation_name %>
-                          </td>
-                          <td>
-                          <%= reservation.reservation_tel %>
-                          </td>
-                          <td>
-                          <%= reservation.reservation_people %>
-                          </td>
-                          <td>
-                          <%= reservation.updated_at.in_time_zone('Tokyo')
-                          .strftime("%Y年%m月%d日 %H時%M分") %>
-                          </td>
-                        </tr>
-                      <% else %>
-                        <tr>
-                          <td colspan="4">まだ応募が完了していません</td>
-                        </tr>
-                      <% end %>
+                      <tr>
+                        <td>
+                        <%= reservation.reservation_name %>
+                        </td>
+                        <td>
+                        <%= reservation.reservation_tel %>
+                        </td>
+                        <td>
+                        <%= reservation.reservation_people %>
+                        </td>
+                        <td>
+                        <%= reservation.updated_at.in_time_zone('Tokyo')
+                        .strftime("%Y年%m月%d日 %H時%M分") %>
+                        </td>
+                      </tr>
                     <% end %>
                   </table>
                 </td>

@@ -20,12 +20,8 @@ Rails.application.routes.draw do
   end
   resources :events
   resources :posts
-  post 'create_order', to: 'orders#create_order'
-  get 'view_order', to: 'orders#view_order'
-  patch 'complete_order', to: 'orders#complete_order'
-  post 'create_reservation', to: 'reservations#create_reservation'
-  get 'view_reservation', to: 'reservations#view_reservation'
-  patch 'complete_reservation', to: 'reservations#complete_reservation'
+  resources :orders, only:[:new, :create]
+  resources :reservations, only:[:new, :create]
   root to: 'home#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

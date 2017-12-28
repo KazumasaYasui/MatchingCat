@@ -34,10 +34,7 @@
       </div>
       <div class="event_show_reservation_box">
         <% if @event.event_people > 0 %>
-          <%= form_tag create_reservation_path, method: :post do |f| %>
-            <%= hidden_field_tag :event_id, @event.id %>
-            <%= submit_tag '応募フォームへ' %>
-          <% end %>
+          <%= link_to "応募フォームへ", new_reservation_path(event_id: @event) %>
         <% end %>
       </div>
       <div class="event_show_link_box">

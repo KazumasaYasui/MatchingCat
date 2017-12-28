@@ -18,7 +18,7 @@
         </thead>
         <tbody>
           <% @orders.each do |order| %>
-            <% if order.present? && order.order_name.present? %>
+            <% if order.present? %>
               <tr>
                 <td>
                   <%= order.order_name %>
