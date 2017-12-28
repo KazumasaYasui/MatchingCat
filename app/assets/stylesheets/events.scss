@@ -126,13 +126,13 @@
       }
       .event_show_reservation_box{
         padding: 10px 0 20px;
-        input[type="submit"] {
+        a{
           background: #f4ae26;
           color: #fff;
           padding: 10px 20px;
           border-radius: 5px;
         }
-        input[type="submit"]:hover{
+        a:hover{
           background: #ec8c2e;
         }
       }

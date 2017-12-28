@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /* 応募フォーム画面 */
-.view_order_container{
+.order_new_container{
   width: 80%;
   padding: 40px 0 40px;
   margin: 0 auto;
@@ -16,7 +16,7 @@
     text-align: center;
     font-size: 26px;
   }
-  .view_order_box{
+  .order_new_box{
     padding: 40px 0 40px;
     @include sp {
       padding: 10px 0 10px;

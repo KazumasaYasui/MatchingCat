@@ -90,10 +90,7 @@
       <% end %>
       <div class="cat_show_order_box">
         <% if @cat.cat_status == true %>
-          <%= form_tag create_order_path, method: :post do |f| %>
-            <%= hidden_field_tag :cat_id, @cat.id %>
-            <%= submit_tag '応募フォームへ' %>
-          <% end %>
+          <%= link_to "応募フォームへ", new_order_path(cat_id: @cat) %>
         <% end %>
       </div>
       <div class="cat_show_link_box">

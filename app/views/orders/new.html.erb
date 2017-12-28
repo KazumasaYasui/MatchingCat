@@ -1,7 +1,7 @@
-<div class="view_order_container">
+<div class="order_new_container">
   <h1>応募者情報入力</h1>
-  <div class="view_order_box">
-    <%= form_for(@order, url: complete_order_path) do |f| %>
+  <div class="order_new_box">
+    <%= form_for(@order) do |f| %>
       <% if @order.errors.any? %>
         <div class="form_error_box">
           <ul>
@@ -81,6 +81,7 @@
           <%= f.text_area :order_description,
               placeholder: 'ねこへの愛情を400文字以内でご入力ください' %>
         </div>
+        <%= f.hidden_field :cat_id %>
         <div class="form_btn_box">
           <%= f.submit '応募します' %>
         </div>

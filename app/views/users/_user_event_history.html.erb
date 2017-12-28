@@ -18,7 +18,7 @@
         </thead>
         <tbody>
           <% @reservations.each do |reservation| %>
-              <% if reservation.present? && reservation.reservation_name.present? %>
+              <% if reservation.present? %>
                 <tr>
                   <td>
                     <%= reservation.reservation_name %>
