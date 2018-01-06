@@ -1,7 +1,7 @@
 <div class="cat_index_container">
   <div class="cat_index_title_box">
     <h1>保護ねこ一覧</h1>
-    <p><%= notice %></p>
+    <p id="notice"><%= notice %></p>
   </div>
   <div class="cat_index_search_box">
     <%= form_with( url:'/cats', local: true, method: :get ) do |f| %>

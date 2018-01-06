@@ -53,32 +53,41 @@ ja:
         male: オス
         female: メス
       cat_breed:
-        cat_a: アビシニアン
-        cat_b: アメリカンカール
-        cat_c: アメリカンショートヘア
-        cat_d: エキゾチックショートヘア
-        cat_e: エキゾチックロングヘア
-        cat_f: シャム
-        cat_g: シャルトリュー
-        cat_h: シンガプーラ
-        cat_i: スコティッシュフォールド
-        cat_j: セルカークレックス
-        cat_k: ソマリ
-        cat_l: トンキニーズ
-        cat_m: ノルウェージャンフォレストキャット
-        cat_n: ヒマラヤン
-        cat_o: ブリティッシュショートヘア
-        cat_p: ブリティッシュロングヘア
-        cat_q: ベンガル
-        cat_r: ペルシャ
-        cat_s: マンチカン
-        cat_t: ミヌエット
-        cat_u: メインクーン
-        cat_v: ラガマフィン
-        cat_w: ラグドール
-        cat_x: ロシアンブルー
-        cat_y: ミックス・雑種
-        cat_z: その他
+        abyssinian: アビシニアン
+        americancurl: アメリカンカール
+        americanshorthair: アメリカンショートヘア
+        exoticshorthair: エキゾチックショートヘア
+        egyptianmau: エジプシャンマウ
+        ocicat: オシキャット
+        orientalshorthair: オリエンタルショートヘア
+        cornishrex: コーニッシュレックス
+        siberian: サイベリアン
+        siamese: シャム
+        chartreux: シャルトリュー
+        singapura: シンガプーラ
+        japanesebobtail: ジャパニーズボブテイル
+        scotishfold: スコティッシュフォールド
+        sphynx: スフィンクス
+        selkirkrex: セルカークレックス
+        somali: ソマリ
+        devonrex: デボンレックス
+        tonkinese: トンキニーズ
+        norwegianforestcat: ノルウェージャンフォレストキャット
+        birman: バーマン
+        himalayan: ヒマラヤン
+        britishshorthair: ブリティッシュショートヘア
+        bengal: ベンガル
+        persian: ペルシャ
+        manx: マンクス
+        munchkin: マンチカン
+        minuet: ミヌエット
+        mainecoon: メインクーン
+        ragamuffin: ラガマフィン
+        ragdoll: ラグドール
+        laperm: ラパーマ
+        russianblue: ロシアンブルー
+        mix: ミックス・雑種
+        others: その他
       cat_prefecture:
         hokkaido: 北海道
         aomori: 青森県

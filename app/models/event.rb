@@ -11,7 +11,7 @@ class Event < ApplicationRecord
                            numericality: {
                             greater_than: 0
                            }
-  validates :image, presence: true, on: :create
+  # validates :image, presence: true, on: :create
   
   attachment :image
   # validates_presence_of :image

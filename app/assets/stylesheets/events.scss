@@ -120,8 +120,26 @@
       }
       .event_show_body_box{
         overflow: hidden;
-        .event_show_body_title, .event_show_body_content{
+        width: 100%;
+        .event_show_body_title{
           float: left;
+          width: 8%;
+        }
+        .event_show_body_content{
+          float: left;
+          width: 92%;
+        }
+      }
+      .event_show_remark_box{
+        overflow: hidden;
+        width: 100%;
+        .event_show_remark_title{
+          float: left;
+          width: 8%;
+        }
+        .event_show_remark_content{
+          float: left;
+          width: 92%;
         }
       }
       .event_show_reservation_box{

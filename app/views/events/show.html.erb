@@ -29,8 +29,9 @@
           応募終了
         <% end %>
       </div>
-      <div class="event_show_remark_box">備考：
-        <%= @event.event_remark %>
+      <div class="event_show_remark_box">
+        <p class="event_show_remark_title">備考：</p>
+        <%= simple_format(@event.event_remark, class: 'event_show_remark_content') %>
       </div>
       <div class="event_show_reservation_box">
         <% if @event.event_people > 0 %>

@@ -32,7 +32,7 @@ class CatsController < ApplicationController
     @cat = Cat.new(cat_params)
     @cat.user_id = current_user.id
     if @cat.save
-      redirect_to @cat, notice: '保護ネコが作成されました。'
+      redirect_to @cat, notice: '保護ねこが作成されました。'
     else
       render :new
     end
@@ -40,7 +40,7 @@ class CatsController < ApplicationController
 
   def update
     if @cat.update(cat_params)
-      redirect_to @cat, notice: '保護ネコが更新されました。'
+      redirect_to @cat, notice: '保護ねこが更新されました。'
     else
       render :edit
     end
@@ -48,7 +48,7 @@ class CatsController < ApplicationController
 
   def destroy
     @cat.destroy
-      redirect_to cats_path, notice: '保護ネコが削除されました。'
+      redirect_to cats_path, notice: '保護ねこが削除されました。'
   end
 
   private

@@ -83,7 +83,7 @@
       padding: 0 0 10px;
     }
     .cat_index_age_and_sex_box{
-      width: 40%;
+      width: 35%;
       margin: 0 auto;
       padding: 0 0 10px;
       .cat_index_age_box,.cat_index_sex_box{
@@ -160,9 +160,14 @@
       }
       .cat_show_description_box{
         overflow: hidden;
-        .cat_show_description_title,
+        width: 100%;
+        .cat_show_description_title{
+          float: left;
+          width: 8%;
+        }
         .cat_show_description_content{
           float: left;
+          width: 92%;
         }
       }
       .cat_show_favorite_box{

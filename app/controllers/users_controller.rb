@@ -15,24 +15,30 @@ class UsersController < ApplicationController
   def my_cat
     if current_user.admin?
       @cats = @user.cats.includes(:cat_images)
+                   .page(params[:page]).per(20)
                    .order(created_at: :desc)
     end
   end
 
   def my_article
     if current_user.admin?
-      @articles = @user.articles.order(created_at: :desc)
+      @articles = @user.articles
+                       .page(params[:page]).per(20)
+                       .order(created_at: :desc)
     end
   end
 
   def my_event
     if current_user.admin?
-      @events = @user.events.order(created_at: :desc)
+      @events = @user.events
+                     .page(params[:page]).per(20)
+                     .order(created_at: :desc)
     end
   end
 
   def my_post
     @posts = @user.posts.includes(:post_images)
+                        .page(params[:page]).per(20)
                         .order(created_at: :desc)
   end
 
