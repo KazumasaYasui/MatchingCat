@@ -10,7 +10,7 @@ class Cat < ApplicationRecord
   validates :cat_sex, presence: true
   validates :cat_breed, presence: true
   validates :cat_prefecture, presence: true
-  validates :cat_description, length: { maximum: 400 }
+  validates :cat_description, presence: true, length: { maximum: 400 }
   # validates :cat_image, presence: true, on: :create
 
   accepts_attachments_for :cat_images, attachment: :image

@@ -164,10 +164,16 @@
         .cat_show_description_title{
           float: left;
           width: 8%;
+          @include sp {
+            width: 15%;
+          }
         }
         .cat_show_description_content{
           float: left;
           width: 92%;
+          @include sp {
+            width: 85%;
+          }
         }
       }
       .cat_show_favorite_box{

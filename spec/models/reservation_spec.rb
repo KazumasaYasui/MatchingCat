@@ -18,7 +18,7 @@ RSpec.describe Reservation, type: :model do
       end
     end
     context 'reservation_nameが長すぎる場合' do
-      let(:reservation) { build(:reservation, reservation_name: "a" * 1000 ) }
+      let(:reservation) { build(:reservation, reservation_name: "a" * 1000) }
       it 'バリデーションに失敗する' do
         expect(reservation).to be_invalid
       end
@@ -30,7 +30,7 @@ RSpec.describe Reservation, type: :model do
       end
     end
     context 'reservation_telのformatが異なる場合' do
-      let(:reservation) { build(:reservation, reservation_tel: "08012345678" ) }
+      let(:reservation) { build(:reservation, reservation_tel: "08012345678") }
       it 'バリデーションに失敗する' do
         expect(reservation).to be_invalid
       end
@@ -41,14 +41,20 @@ RSpec.describe Reservation, type: :model do
         expect(reservation).to be_invalid
       end
     end
-    context 'reservation_peopleの数値がマイナスの場合' do
-      let(:reservation) { build(:reservation, reservation_people: -11 ) }
+    context 'reservation_peopleの数値が0の場合' do
+      let(:reservation) { build(:reservation, reservation_people: 0) }
       it 'バリデーションに失敗する' do
         expect(reservation).to be_invalid
       end
     end
-    context 'reservation_peopleの数値が不正確な場合' do
-      let(:reservation) { build(:reservation, reservation_people: 11 ) }
+    context 'reservation_peopleの数値がマイナスの場合' do
+      let(:reservation) { build(:reservation, reservation_people: -11) }
+      it 'バリデーションに失敗する' do
+        expect(reservation).to be_invalid
+      end
+    end
+    context 'reservation_peopleの数値が11以上の場合' do
+      let(:reservation) { build(:reservation, reservation_people: 11) }
       it 'バリデーションに失敗する' do
         expect(reservation).to be_invalid
       end

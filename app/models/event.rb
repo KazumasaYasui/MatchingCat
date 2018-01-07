@@ -12,9 +12,8 @@ class Event < ApplicationRecord
                             greater_than: 0
                            }
   # validates :image, presence: true, on: :create
-  
+
   attachment :image
-  # validates_presence_of :image
 
   geocoded_by :event_address
   after_validation :geocode

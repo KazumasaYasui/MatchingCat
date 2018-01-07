@@ -124,10 +124,16 @@
         .event_show_body_title{
           float: left;
           width: 8%;
+          @include sp {
+            width: 15%;
+          }
         }
         .event_show_body_content{
           float: left;
           width: 92%;
+          @include sp {
+            width: 85%;
+          }
         }
       }
       .event_show_remark_box{
@@ -136,10 +142,16 @@
         .event_show_remark_title{
           float: left;
           width: 8%;
+          @include sp {
+            width: 15%;
+          }
         }
         .event_show_remark_content{
           float: left;
           width: 92%;
+          @include sp {
+            width: 85%;
+          }
         }
       }
       .event_show_reservation_box{

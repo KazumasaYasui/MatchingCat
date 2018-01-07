@@ -6,5 +6,4 @@ class Article < ApplicationRecord
   # validates :image, presence: true
 
   attachment :image
-  # validates_presence_of :image
 end
