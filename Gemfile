@@ -51,6 +51,7 @@ group :development, :test do
   # テスト向けの機能
   gem 'rspec-rails', '~> 3.6'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
   # 開発・テスト環境ではsqlite3を使用
   # gem 'sqlite3'
 end
