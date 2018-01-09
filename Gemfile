@@ -67,6 +67,11 @@ group :development do
   gem 'bullet'
 end
 
+group :production do
+  # Unicornサーバー
+  # gem 'unicorn'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -103,5 +108,5 @@ gem "refile-mini_magick"
 # gem "refile-s3"
 # 環境変数を設定する機能
 # gem 'dotenv-rails'
-# パンくず機能
-# gem 'breadcrumbs_on_rails'
+# lデプロイ時はistenを移動する
+# gem 'listen', '>= 3.0.5', '< 3.2'
