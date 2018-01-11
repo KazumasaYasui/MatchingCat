@@ -1,4 +1,7 @@
 <%= render 'google_api' %>
+<% assign_meta_tags title: 'イベント',
+                    description: 'イベントの詳細です',
+                    keywords: 'イベント,保護ねこ' %>
 <div class="event_show_container">
   <h1><%= @event.event_title %></h1>
   <div class="event_show_box">

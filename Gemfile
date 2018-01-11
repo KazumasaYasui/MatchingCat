@@ -110,3 +110,5 @@ gem "refile-mini_magick"
 # gem 'dotenv-rails'
 # lデプロイ時はistenを移動する
 # gem 'listen', '>= 3.0.5', '< 3.2'
+# OGP設定用のgem
+gem 'meta-tags'

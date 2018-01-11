@@ -1,0 +1,7 @@
+en:
+  meta_tags:
+    defaults:
+      site: 'MatchingCat'
+      description: 'Symbiosis of Human and Cat'
+      keywords: 'keyword1,keyword2,keyword3'
+      title: 'MatchingCat'
