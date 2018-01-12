@@ -15,6 +15,7 @@ class CatsController < ApplicationController
   end
 
   def show
+    prepare_meta_tags(title: @cat.cat_name)
   end
 
   def new

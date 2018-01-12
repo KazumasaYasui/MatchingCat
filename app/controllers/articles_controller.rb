@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    prepare_meta_tags(title: @article.article_title)
   end
 
   def new

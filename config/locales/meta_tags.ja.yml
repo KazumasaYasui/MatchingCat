@@ -1,7 +1,18 @@
 ja:
   meta_tags:
-    defaults:
+    base:
       site: 'MatchingCat'
       description: '人間と猫の共生を目指す保護ねこサイトです'
-      keywords: 'キーワード1,キーワード2,キーワード3'
-      title: 'MatchingCat'
+      keywords:
+        - マッチングキャット
+        - 保護ねこ
+        - 人間と猫の共生
+    titles:
+      articles:
+        index: 記事一覧
+      cats:
+        index: 保護ねこ一覧
+      events:
+        index: イベント一覧
+      posts:
+        index: つぶやき一覧

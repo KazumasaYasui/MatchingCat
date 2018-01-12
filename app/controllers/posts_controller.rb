@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    prepare_meta_tags(title: @post.post_title)
   end
 
   def new

@@ -13,6 +13,7 @@ class EventsController < ApplicationController
     gon.latitude = @event.latitude
     gon.longitude = @event.longitude
     gon.address = @event.event_address
+    prepare_meta_tags(title: @event.event_title)
   end
 
   def new

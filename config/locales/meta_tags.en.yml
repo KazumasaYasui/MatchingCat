@@ -1,7 +1,17 @@
 en:
   meta_tags:
-    defaults:
+    base:
       site: 'MatchingCat'
       description: 'Symbiosis of Human and Cat'
-      keywords: 'keyword1,keyword2,keyword3'
-      title: 'MatchingCat'
+      keywords:
+        - MatchingCat
+        - Taking in Stray Cats
+        - Symbiosis of Human and Cat
+      articles:
+        index: ArticlesIndex
+      cats:
+        index: CatsIndex
+      events:
+        index: EventsIndex
+      posts:
+        index: PostsIndex
