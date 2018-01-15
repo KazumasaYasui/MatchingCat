@@ -112,3 +112,5 @@ gem "refile-mini_magick"
 # gem 'listen', '>= 3.0.5', '< 3.2'
 # OGP設定用のgem
 gem 'meta-tags'
+# SNSシェアボタン用のgem
+gem 'social-share-button'

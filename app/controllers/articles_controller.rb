@@ -7,10 +7,16 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all.order(created_at: :desc)
                        .page(params[:page]).per(20)
+    prepare_meta_tags(
+      image: image_url('/images/article_img_sample.jpg')
+    )
   end
 
   def show
-    prepare_meta_tags(title: @article.article_title)
+    prepare_meta_tags(
+      title: @article.article_title,
+      image: image_url('/images/article_img_sample.jpg')
+    )
   end
 
   def new

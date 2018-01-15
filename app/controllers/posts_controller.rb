@@ -8,10 +8,16 @@ class PostsController < ApplicationController
     @posts = Post.all.includes(:post_images)
                  .order(created_at: :desc)
                  .page(params[:page]).per(20)
+    prepare_meta_tags(
+      image: image_url('/images/post_img_sample1.jpg')
+    )
   end
 
   def show
-    prepare_meta_tags(title: @post.post_title)
+    prepare_meta_tags(
+      title: @post.post_title,
+      image: image_url('/images/post_img_sample2.jpg')
+    )
   end
 
   def new

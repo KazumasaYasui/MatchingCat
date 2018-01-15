@@ -24,6 +24,9 @@
             data: {confirm: '本当に削除しますか？'} %>
         <% end %>
       </div>
+      <div class="article_show_sns_box">
+        <%= social_share_button_tag(@article.article_title) %>
+      </div>
     </div>
   </div>
 </div>

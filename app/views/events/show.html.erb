@@ -48,6 +48,9 @@
             data: {confirm: '本当に削除しますか？'} %>
         <% end %>
       </div>
+      <div class="event_show_sns_box">
+        <%= social_share_button_tag(@event.event_title) %>
+      </div>
     </div>
     <div class="clear"></div>
     <div id="map"></div>

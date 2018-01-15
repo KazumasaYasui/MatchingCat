@@ -15,7 +15,7 @@ module MetaTaggable
     site = base[:site]
     description = base[:description]
     title = t("meta_tags.titles.#{controller_name}.#{action_name}", default: 'MatchingCat')
-    image = image_url('/images/cat_img_sample1.jpg')
+    image = options[:image].presence || image_url('/images/cat_img_sample1.jpg')
 
     defaults = {
       site: site,

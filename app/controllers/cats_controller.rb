@@ -12,10 +12,16 @@ class CatsController < ApplicationController
                .get_by_cat_sex(params[:cat_sex].presence)
                .get_by_cat_breed(params[:cat_breed].presence)
                .get_by_cat_prefecture(params[:cat_prefecture].presence)
+    prepare_meta_tags(
+      image: image_url('/images/cat_img_sample2.jpg')
+    )
   end
 
   def show
-    prepare_meta_tags(title: @cat.cat_name)
+    prepare_meta_tags(
+      title: @cat.cat_name,
+      image: image_url('/images/cat_img_sample3.jpg')
+    )
   end
 
   def new

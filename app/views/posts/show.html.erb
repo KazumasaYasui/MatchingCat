@@ -62,6 +62,9 @@
             data: {confirm: '本当に削除しますか？'} %>
         <% end %>
       </div>
+      <div class="post_show_sns_box">
+        <%= social_share_button_tag(@post.post_title) %>
+      </div>
     </div>
   </div>
 </div>

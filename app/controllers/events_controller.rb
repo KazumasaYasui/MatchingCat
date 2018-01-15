@@ -7,13 +7,19 @@ class EventsController < ApplicationController
   def index
     @events = Event.all.order(created_at: :desc)
                    .page(params[:page]).per(20)
+    prepare_meta_tags(
+      image: image_url('/images/event_img_sample.jpg')
+    )
   end
 
   def show
     gon.latitude = @event.latitude
     gon.longitude = @event.longitude
     gon.address = @event.event_address
-    prepare_meta_tags(title: @event.event_title)
+    prepare_meta_tags(
+      title: @event.event_title,
+      image: image_url('/images/event_img_sample.jpg')
+    )
   end
 
   def new
