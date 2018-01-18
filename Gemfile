@@ -108,7 +108,7 @@ gem "refile-mini_magick"
 # gem "refile-s3"
 # 環境変数を設定する機能
 # gem 'dotenv-rails'
-# lデプロイ時はistenを移動する
+# デプロイ時はlistenを移動する
 # gem 'listen', '>= 3.0.5', '< 3.2'
 # OGP設定用のgem
 gem 'meta-tags'

@@ -74,6 +74,9 @@
       }
       img{
         border-radius: 20px;
+        @include sp {
+          width: 100%;
+        }
       }
       .right_radius{
         border-radius: 0 20px 20px 0;
