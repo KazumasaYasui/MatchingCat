@@ -48,6 +48,9 @@ group :development, :test do
   gem 'selenium-webdriver'
   # pry機能
   gem 'pry-rails'
+  gem 'pry-doc'                 # methodを表示
+  gem 'pry-byebug'              # デバッグを実施
+  gem 'pry-stack_explorer'      # スタックをたどれる
   # テスト向けの機能
   gem 'rspec-rails', '~> 3.6'
   gem 'factory_bot_rails'
